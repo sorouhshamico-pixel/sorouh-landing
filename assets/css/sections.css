@@ -1,0 +1,1611 @@
+/* ==========================================================================
+   Sorouh Alshami — Section Layouts
+   hero · about · services · why · process · projects · stats · faq · cta · contact
+   All breakpoints: mobile ≤767 · tablet 768–1023 · desktop ≥1024
+   ========================================================================== */
+
+/* ==========================================================================
+   0. SHARED
+   ========================================================================== */
+.section--alt {
+  background:
+    radial-gradient(
+      70% 50% at 85% 0%,
+      rgba(19, 28, 46, 0.55),
+      transparent 65%
+    ),
+    linear-gradient(180deg, rgba(7, 11, 18, 0.9), rgba(5, 7, 12, 0.35));
+}
+
+/* Shared group label used inside multi-group sections */
+.group-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-block-end: var(--space-md);
+  color: var(--gold-300);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+.group-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(225, 184, 50, 0.35),
+    transparent
+  );
+}
+
+.group + .group {
+  margin-block-start: var(--space-2xl);
+}
+
+/* ==========================================================================
+   1. HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-block-start: calc(var(--header-h) + clamp(2rem, 1rem + 4vw, 4.5rem));
+  padding-block-end: clamp(4rem, 2rem + 6vw, 7rem);
+  background: var(--grad-hero-vignette);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* --- Hero background layers ------------------------------------------- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+}
+
+.hero__glow--a {
+  inset-block-start: -14%;
+  inset-inline-end: -6%;
+  width: min(620px, 78vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(225, 184, 50, 0.34), transparent 68%);
+  animation: drift-a 18s var(--ease-in-out-soft) infinite alternate;
+}
+
+.hero__glow--b {
+  inset-block-end: -22%;
+  inset-inline-start: -10%;
+  width: min(560px, 72vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(27, 39, 64, 0.85), transparent 70%);
+  animation: drift-b 22s var(--ease-in-out-soft) infinite alternate;
+}
+
+/* Perspective blueprint floor */
+.hero__grid {
+  position: absolute;
+  inset-block-end: -2%;
+  inset-inline: -25%;
+  height: 52%;
+  background-image:
+    linear-gradient(rgba(225, 184, 50, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 184, 50, 0.11) 1px, transparent 1px);
+  background-size: 62px 62px;
+  transform: perspective(580px) rotateX(74deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 4%, transparent 76%);
+  mask-image: linear-gradient(to top, #000 4%, transparent 76%);
+  animation: grid-drift 26s linear infinite;
+}
+
+/* Ghost emblem watermark */
+.hero__emblem {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  width: min(880px, 96vw);
+  transform: translate(50%, -50%);
+  opacity: 0.05;
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+
+/* --- Hero layout ------------------------------------------------------- */
+.hero__inner {
+  position: relative;
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: var(--z-content);
+  max-width: 40rem;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0.45rem 1rem 0.45rem 0.7rem;
+  margin-block-end: var(--space-md);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-pill);
+  background: var(--grad-gold-soft);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--gold-200);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__badge b {
+  display: inline-grid;
+  place-items: center;
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--grad-gold);
+  color: var(--navy-900);
+  font-weight: var(--fw-extrabold);
+}
+
+.hero__title {
+  margin-block-end: var(--space-md);
+}
+
+.hero__title span {
+  display: block;
+}
+
+/* --- Masked line reveal ------------------------------------------------
+   Each headline line slides up from behind its own mask. JS wraps each
+   line's contents in .hero__line — the element that moves — and adds
+   .is-line-anim, then .is-lines-in. Because the moving element is a
+   block, a line that wraps wraps exactly as it did unwrapped.
+
+   The mask is clip-path rather than overflow:hidden. Noto Kufi Arabic
+   declares a font box far taller than its line box (114px of ink in a
+   74px line, half-leading −20px), so a tight overflow window would shear
+   Arabic ascenders and descenders. A negative inset() widens the window
+   past the font box and, unlike padding, costs the headline nothing: its
+   box is untouched. */
+.js .hero__title.is-line-anim > span {
+  clip-path: inset(-0.4em 0 -0.4em 0);
+}
+
+.js .hero__title.is-line-anim .hero__line {
+  display: block;
+  transform: translate3d(0, 108%, 0);
+  transition: transform 860ms var(--ease-out-expo);
+}
+
+.js .hero__title.is-line-anim.is-lines-in .hero__line {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Gold emphasis on the service part of the headline */
+.hero__title em {
+  font-style: normal;
+  background: var(--grad-gold);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shift 9s var(--ease-in-out-soft) infinite alternate;
+}
+
+.hero__slogan {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-block-end: var(--space-sm);
+  color: var(--gold-200);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.hero__slogan::before,
+.hero__slogan::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--grad-gold-line);
+}
+
+.hero__text {
+  max-width: 54ch;
+  font-size: var(--fs-lead);
+  line-height: 1.95;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-block: var(--space-lg) var(--space-lg);
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-md);
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--border-subtle);
+  list-style: none;
+  margin: 0;
+}
+
+.hero__trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  color: var(--text-200);
+  font-size: var(--fs-xs);
+}
+
+.hero__trust svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  stroke: var(--gold-400);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* --- Hero 3D stage ----------------------------------------------------- */
+.hero__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(340px, 42vw, 520px);
+  transform: translate3d(0, var(--py, 0px), 0);
+  transition: transform 90ms linear;
+}
+
+/* Rotating gold ring behind the slab */
+.hero__ring {
+  position: absolute;
+  width: min(400px, 82%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(225, 184, 50, 0.28);
+  animation: spin 34s linear infinite;
+}
+
+.hero__ring::before,
+.hero__ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.hero__ring::before {
+  inset: 12%;
+  border: 1px dashed rgba(225, 184, 50, 0.2);
+}
+
+.hero__ring::after {
+  inset-block-start: -5px;
+  inset-inline-start: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--grad-gold);
+  box-shadow: 0 0 18px 4px rgba(225, 184, 50, 0.5);
+}
+
+/* The logo slab — the hero's centrepiece */
+.hero__slab {
+  position: relative;
+  z-index: var(--z-base);
+  width: min(320px, 74%);
+  aspect-ratio: 880 / 695;
+  perspective: 1400px;
+}
+
+.hero__slab-face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-xl);
+  background: var(--grad-surface-glass);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow:
+    var(--shadow-xl),
+    var(--shadow-gold),
+    var(--shadow-inset-top);
+  transform: rotateX(9deg) rotateY(-11deg);
+  transition: transform var(--dur-slower) var(--ease-out-expo);
+}
+
+.hero__slab:hover .hero__slab-face {
+  transform: rotateX(4deg) rotateY(-4deg) scale(1.02);
+}
+
+.hero__slab-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--grad-gold);
+  opacity: 0.72;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.hero__slab-face::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 12%;
+  width: 46%;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, transparent, var(--gold-100), transparent);
+  animation: slab-sheen 4.5s var(--ease-in-out-soft) infinite;
+}
+
+.hero__slab-logo {
+  width: 88%;
+  height: auto;
+}
+
+/* Ground shadow for weight */
+.hero__shadow {
+  position: absolute;
+  inset-block-end: 4%;
+  width: min(300px, 66%);
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.72), transparent 70%);
+  filter: blur(14px);
+}
+
+/* Floating capability chips around the slab */
+.hero__chip {
+  position: absolute;
+  z-index: var(--z-overlay);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(10, 15, 26, 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+  color: var(--text-100);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+
+.hero__chip svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__chip--1 {
+  inset-block-start: 6%;
+  inset-inline-start: -4%;
+  animation: float-y 7s var(--ease-in-out-soft) infinite alternate;
+}
+
+.hero__chip--2 {
+  inset-block-start: 46%;
+  inset-inline-end: -8%;
+  animation: float-y 8.5s var(--ease-in-out-soft) 0.8s infinite alternate-reverse;
+}
+
+.hero__chip--3 {
+  inset-block-end: 8%;
+  inset-inline-start: 2%;
+  animation: float-y 9.5s var(--ease-in-out-soft) 1.6s infinite alternate;
+}
+
+@media (max-width: 479px) {
+  .hero__chip {
+    font-size: 0.6875rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .hero__chip--1 {
+    inset-inline-start: -2%;
+  }
+
+  .hero__chip--2 {
+    inset-inline-end: -2%;
+  }
+}
+
+/* Scroll cue */
+.hero__scroll {
+  position: absolute;
+  inset-block-end: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  inset-inline-start: 50%;
+  z-index: var(--z-overlay);
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  transform: translateX(50%);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(
+    180deg,
+    var(--gold-500),
+    transparent
+  );
+  animation: scroll-cue 2.4s var(--ease-in-out-soft) infinite;
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
+
+/* --- Hero keyframes --------------------------------------------------- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate3d(-6%, 5%, 0) scale(1.12);
+  }
+}
+
+@keyframes drift-b {
+  to {
+    transform: translate3d(7%, -6%, 0) scale(1.08);
+  }
+}
+
+@keyframes grid-drift {
+  to {
+    background-position:
+      0 62px,
+      62px 0;
+  }
+}
+
+@keyframes gold-shift {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes slab-sheen {
+  0%,
+  100% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+
+  40%,
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@keyframes float-y {
+  from {
+    transform: translateY(-9px);
+  }
+
+  to {
+    transform: translateY(11px);
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleY(0.55);
+    transform-origin: 50% 0;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 50% 0;
+  }
+}
+
+/* ==========================================================================
+   2. ABOUT
+   ========================================================================== */
+.about__inner {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  }
+}
+
+/* --- Blueprint illustration panel -------------------------------------- */
+.about__visual {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: var(--grad-surface);
+  box-shadow: var(--shadow-xl), var(--shadow-inset-top);
+  overflow: hidden;
+}
+
+.about__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--grad-gold);
+  opacity: 0.55;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Real site photo sits behind the technical line art, heavily dimmed so the
+   SVG drawing stays the readable layer. */
+.about__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(0.7);
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 45%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 45%,
+    #000 100%
+  );
+}
+
+.about__art {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg);
+  background:
+    radial-gradient(
+      70% 60% at 50% 100%,
+      rgba(225, 184, 50, 0.14),
+      transparent 70%
+    ),
+    linear-gradient(180deg, rgba(19, 28, 46, 0.55), rgba(5, 7, 12, 0.2));
+}
+
+.about__art > svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Faint technical grid inside the art panel */
+.about__art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(225, 184, 50, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 184, 50, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent);
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent);
+}
+
+.about__art svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 8px 26px rgba(225, 184, 50, 0.24));
+}
+
+.about__art .solid {
+  fill: rgba(225, 184, 50, 0.12);
+}
+
+.about__art .dim {
+  stroke: rgba(225, 184, 50, 0.4);
+}
+
+/* Floating spec chips over the art */
+.about__specs {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+.about__spec {
+  padding: var(--space-md) var(--space-sm);
+  background: var(--navy-850);
+  text-align: center;
+}
+
+.about__spec b {
+  display: block;
+  color: var(--gold-300);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.2;
+}
+
+.about__spec span {
+  display: block;
+  margin-block-start: 0.2rem;
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+  line-height: 1.5;
+}
+
+/* --- About copy -------------------------------------------------------- */
+.about__lead {
+  margin-block: var(--space-md);
+  font-size: var(--fs-lead);
+  line-height: 2;
+  color: var(--text-200);
+}
+
+.about__points {
+  display: grid;
+  gap: var(--space-sm);
+  margin-block: var(--space-lg);
+}
+
+.about__point {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-inline-start: 2px solid var(--gold-500);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    rgba(225, 184, 50, 0.07),
+    rgba(10, 15, 26, 0.35) 60%
+  );
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-quart);
+}
+
+.about__point:hover {
+  transform: translateX(-6px);
+  border-inline-start-color: var(--gold-200);
+}
+
+.about__point b {
+  display: block;
+  margin-block-end: 0.15rem;
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.about__point p {
+  font-size: var(--fs-xs);
+  line-height: 1.8;
+  color: var(--text-200);
+}
+
+.about__point-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--grad-gold-soft);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-300);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-extrabold);
+}
+
+/* ==========================================================================
+   3. SERVICES
+   ========================================================================== */
+/* 6 core cards → 1 / 2 / 3 columns so every row is always full */
+.services__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4 compact cards → 1 / 2 / 4 columns */
+.services__grid--4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .services__grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .services__grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service {
+  --card-pad: clamp(1.4rem, 1.1rem + 0.9vw, 1.9rem);
+}
+
+.service__index {
+  position: absolute;
+  inset-block-start: var(--space-sm);
+  inset-inline-end: var(--space-md);
+  color: rgba(225, 184, 50, 0.16);
+  font-size: 2.4rem;
+  font-weight: var(--fw-black);
+  line-height: 1;
+  transition:
+    color var(--dur-slow) var(--ease-out-quart),
+    transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.lift:hover .service__index {
+  color: rgba(225, 184, 50, 0.34);
+  transform: translateY(-4px);
+}
+
+/* Compact variant for the secondary group */
+.service--compact {
+  --card-pad: 1.35rem;
+}
+
+.service--compact .card__text {
+  font-size: var(--fs-xs);
+}
+
+/* ==========================================================================
+   4. WHY CHOOSE US
+   ========================================================================== */
+/* 6 cards → 1 / 2 / 3 columns so every row is always full */
+.why__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .why__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* The featured card is distinguished by its tint only. A column span here
+   would always orphan the last row (6 cards in 3 columns + 1 spanning). */
+.why__card--feature {
+  background:
+    linear-gradient(150deg, rgba(225, 184, 50, 0.11), rgba(10, 15, 26, 0.9) 55%);
+}
+
+.why__card {
+  --card-pad: clamp(1.6rem, 1.2rem + 1.2vw, 2.25rem);
+}
+
+.why__card h3 {
+  margin-block-end: var(--space-2xs);
+}
+
+/* Oversized ghost number in the corner */
+.why__num {
+  position: absolute;
+  inset-block-start: -0.35em;
+  inset-inline-start: 0.3em;
+  z-index: 0;
+  color: rgba(225, 184, 50, 0.07);
+  font-size: 5.5rem;
+  font-weight: var(--fw-black);
+  line-height: 1;
+  pointer-events: none;
+  transition: color var(--dur-slow) var(--ease-out-quart);
+}
+
+.lift:hover .why__num {
+  color: rgba(225, 184, 50, 0.14);
+}
+
+/* The featured card is distinguished by its tint only. A column span here
+   would always orphan the last row (6 cards in 3 columns + 1 spanning). */
+.why__card--feature {
+  background:
+    linear-gradient(150deg, rgba(225, 184, 50, 0.11), rgba(10, 15, 26, 0.9) 55%);
+}
+
+/* ==========================================================================
+   5. PROCESS
+   ========================================================================== */
+.process {
+  position: relative;
+}
+
+/* Connecting gold line behind the step discs (desktop only) */
+.process__track {
+  position: relative;
+}
+
+.process__track::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 33px;
+  inset-inline: 8%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(225, 184, 50, 0.16) 12%,
+    rgba(225, 184, 50, 0.4) 50%,
+    rgba(225, 184, 50, 0.16) 88%,
+    transparent
+  );
+}
+
+@media (max-width: 899px) {
+  .process__track::before {
+    display: none;
+  }
+}
+
+.process__list {
+  position: relative;
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .process__list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-sm);
+  }
+}
+
+.process__step {
+  position: relative;
+  text-align: center;
+}
+
+/* Vertical connector for mobile/tablet */
+@media (max-width: 899px) {
+  .process__step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    inset-block-start: calc(100% + 0.5rem);
+    inset-inline-start: 50%;
+    width: 2px;
+    height: calc(var(--space-md) - 1rem);
+    transform: translateX(-50%);
+    background: linear-gradient(
+      180deg,
+      rgba(225, 184, 50, 0.34),
+      transparent
+    );
+  }
+}
+
+.process__disc {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto var(--space-sm);
+  border-radius: 50%;
+  background: linear-gradient(
+    155deg,
+    rgba(225, 184, 50, 0.2),
+    rgba(10, 15, 26, 0.95) 70%
+  );
+  box-shadow:
+    var(--shadow-md),
+    var(--shadow-inset-top);
+  transition:
+    transform var(--dur-slow) var(--ease-spring),
+    box-shadow var(--dur-slow) var(--ease-out-expo);
+}
+
+.process__disc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: var(--grad-gold);
+  -webkit-mask:
+    radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 0);
+  mask:
+    radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 0);
+  opacity: 0.7;
+}
+
+/* Faint 3D offset disc behind the face */
+.process__disc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(160deg, rgba(225, 184, 50, 0.16), transparent 60%);
+  transform: translateZ(-14px) translateY(7px) scale(0.94);
+  z-index: -1;
+}
+
+.process__step:hover .process__disc {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: var(--shadow-gold-strong), var(--shadow-inset-gold);
+}
+
+.process__num {
+  color: var(--gold-200);
+  font-size: 1.35rem;
+  font-weight: var(--fw-black);
+  line-height: 1;
+}
+
+.process__title {
+  margin-block-end: var(--space-3xs);
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.process__step:hover .process__title {
+  color: var(--gold-200);
+}
+
+.process__text {
+  font-size: var(--fs-xs);
+  line-height: 1.85;
+  color: var(--text-200);
+}
+
+/* ==========================================================================
+   6. PROJECTS
+   ========================================================================== */
+/* 6 project cards → 1 / 2 / 3 columns so every row is always full */
+.projects__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project {
+  --card-pad: 0;
+  overflow: hidden;
+}
+
+/* Artwork area — pure CSS/SVG 3D composition (no photography) */
+/* Portrait 3:4 matches the project photographs. The gradient below stays as
+   the fallback surface if a photo ever fails to load. */
+.project__art {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      80% 70% at 50% 105%,
+      rgba(225, 184, 50, 0.22),
+      transparent 68%
+    ),
+    linear-gradient(180deg, rgba(27, 39, 64, 0.75), rgba(5, 7, 12, 0.55));
+}
+
+.project__art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--dur-slower) var(--ease-out-expo);
+}
+
+.project:hover .project__art img {
+  transform: scale(1.05);
+}
+
+/* Technical grid inside each project artwork */
+/* Scan-line sweep on hover */
+.project__art::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 42%;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(225, 184, 50, 0.16),
+    transparent
+  );
+  transform: translateY(-130%);
+  transition: transform 1.1s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.lift:hover .project__art::after {
+  transform: translateY(280%);
+}
+
+/* Type tag floating over the photograph */
+.project__tag {
+  position: absolute;
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-sm);
+  z-index: 2;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(5, 7, 12, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--gold-200);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.project__body {
+  padding: var(--space-md) var(--card-pad, 1.6rem) 1.6rem;
+}
+
+.project__title {
+  margin-block-end: var(--space-3xs);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+
+.project__text {
+  font-size: var(--fs-xs);
+  line-height: 1.85;
+  color: var(--text-200);
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+  margin-block-start: var(--space-sm);
+  padding-block-start: var(--space-sm);
+  border-block-start: 1px solid var(--border-subtle);
+  list-style: none;
+}
+
+.project__tags li {
+  padding: 0.22rem 0.6rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xs);
+  background: rgba(19, 28, 46, 0.55);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+}
+
+/* ==========================================================================
+   7. STATS
+   ========================================================================== */
+/* 4 stats → 1 / 2 / 4 columns */
+.stats__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .stats__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat {
+  --card-pad: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  align-items: center;
+  text-align: center;
+}
+
+.stat__value {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.1em;
+  margin-block-end: var(--space-2xs);
+  background: var(--grad-gold);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.4rem, 1.7rem + 2.4vw, 3.5rem);
+  font-weight: var(--fw-black);
+  line-height: 1.1;
+}
+
+.stat__label {
+  margin-block-end: var(--space-3xs);
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+
+.stat__text {
+  font-size: var(--fs-xs);
+  line-height: 1.8;
+  color: var(--text-200);
+}
+
+/* Progress meter under each stat */
+.stat__meter {
+  width: 100%;
+  height: 4px;
+  margin-block-start: var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: rgba(168, 178, 193, 0.14);
+  overflow: hidden;
+}
+
+.stat__meter i {
+  display: block;
+  height: 100%;
+  width: var(--fill, 0%);
+  border-radius: inherit;
+  background: var(--grad-gold);
+  box-shadow: 0 0 12px rgba(225, 184, 50, 0.5);
+  transition: width 1.4s var(--ease-out-expo);
+}
+
+
+/* ==========================================================================
+   8. BLOG
+   ========================================================================== */
+/* 5 post cards. From 640px up the first card spans 2 columns, so the grid
+   resolves to 6 cells → every row is full at 2 and at 3 columns. */
+.blog__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .blog__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog__grid > .post-card:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* the lead card gets a wider crop of the artwork instead of a taller one */
+  .blog__grid > .post-card:first-child .post-card__art {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+/* ==========================================================================
+   9. FAQ
+   ========================================================================== */
+.faq__inner {
+  display: grid;
+  gap: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .faq__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  }
+
+  .faq__aside {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-lg));
+  }
+}
+
+.faq__aside-card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    155deg,
+    rgba(225, 184, 50, 0.13),
+    rgba(10, 15, 26, 0.95) 60%
+  );
+  box-shadow: var(--shadow-lg), var(--shadow-inset-top);
+  text-align: center;
+}
+
+.faq__aside-card .icon-tile {
+  margin-inline: auto;
+}
+
+.faq__aside-card h3 {
+  margin-block-end: var(--space-2xs);
+  font-size: var(--fs-h3);
+}
+
+.faq__aside-card p {
+  margin-block-end: var(--space-md);
+  font-size: var(--fs-xs);
+  line-height: 1.85;
+}
+
+.faq__aside-card .btn {
+  width: 100%;
+}
+
+/* ==========================================================================
+   10. CTA BAND
+   ========================================================================== */
+.cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta__panel {
+  position: relative;
+  padding: clamp(2.5rem, 1.6rem + 3.4vw, 4.75rem) clamp(1.5rem, 1rem + 2.4vw, 4rem);
+  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(150deg, rgba(225, 184, 50, 0.16), rgba(10, 15, 26, 0.9) 52%),
+    var(--grad-surface);
+  box-shadow: var(--shadow-xl), var(--shadow-gold), var(--shadow-inset-top);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Gold hairline frame */
+.cta__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: var(--grad-gold);
+  opacity: 0.8;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Expanding gold rings behind the CTA text */
+.cta__rings {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  z-index: -1;
+  width: min(760px, 130%);
+  aspect-ratio: 1;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+.cta__rings i {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border: 1px solid rgba(225, 184, 50, 0.16);
+  border-radius: 50%;
+  animation: cta-ring 7s var(--ease-out-expo) infinite;
+}
+
+.cta__rings i:nth-child(2) {
+  inset: 12%;
+  animation-delay: 0.9s;
+}
+
+.cta__rings i:nth-child(3) {
+  inset: 24%;
+  animation-delay: 1.8s;
+}
+
+.cta__panel h2 {
+  margin-block-end: var(--space-sm);
+}
+
+.cta__slogan {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-block-end: var(--space-md);
+  color: var(--gold-200);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+}
+
+.cta__text {
+  max-width: 60ch;
+  margin: 0 auto var(--space-lg);
+  font-size: var(--fs-lead);
+  line-height: 1.95;
+  color: var(--text-200);
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2xs);
+}
+
+@keyframes cta-ring {
+  0% {
+    transform: scale(0.82);
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   11. CONTACT
+   ========================================================================== */
+.contact__inner {
+  display: grid;
+  gap: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact__inner {
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  }
+}
+
+.contact__intro .rule {
+  margin-block: var(--space-md);
+}
+
+.contact__text {
+  margin-block-end: var(--space-md);
+  font-size: var(--fs-sm);
+  line-height: 1.95;
+}
+
+.contact__note {
+  display: flex;
+  gap: var(--space-2xs);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: rgba(225, 184, 50, 0.05);
+  font-size: var(--fs-xs);
+  line-height: 1.8;
+  color: var(--text-200);
+}
+
+.contact__note svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-block-start: 0.2em;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact__hours {
+  margin-block-start: var(--space-md);
+  font-size: var(--fs-xs);
+  color: var(--text-300);
+}
+
+/* 5 contact cards → 1 / 2 / 3 columns; the 5th spans 2 so no row is short.
+   The grid item is the .lift wrapper, not the .contact__card inside it. */
+.contact__grid {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__grid > .lift:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .contact__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact__card {
+  --card-pad: 1.4rem;
+  gap: var(--space-2xs);
+}
+
+.contact__card .icon-tile {
+  width: 48px;
+  height: 48px;
+  margin-block-end: var(--space-2xs);
+}
+
+.contact__card .icon-tile svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact__label {
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-medium);
+}
+
+.contact__value {
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: 1.6;
+  word-break: break-word;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.lift:hover .contact__value {
+  color: var(--gold-200);
+}
+
+/* ==========================================================================
+   12. PERFORMANCE — skip rendering work for off-screen sections
+   ========================================================================== */
+@supports (content-visibility: auto) {
+  .section--defer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+  }
+}

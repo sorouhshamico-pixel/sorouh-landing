@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Sorouh Alshami — Design Tokens
+   Single source of truth for the design system.
+   Palette values are sampled directly from the official company logo file
+   (assets/img/logo.png) so the UI matches the brand identity exactly.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     1. COLOR — Dark navy-black foundation
+     --------------------------------------------------------------------- */
+  --navy-950: #03050a;
+  --navy-900: #05070c; /* page base            */
+  --navy-850: #070b12;
+  --navy-800: #0a0f1a; /* surface / card       */
+  --navy-750: #0c121f;
+  --navy-700: #0e1524; /* elevated surface     */
+  --navy-600: #131c2e; /* raised / hover       */
+  --navy-500: #1b2740; /* hairline / divider   */
+  --navy-400: #26344f;
+
+  /* ---------------------------------------------------------------------
+     2. COLOR — Metallic gold (sampled from the logo emblem)
+     --------------------------------------------------------------------- */
+  --gold-100: #ffe9a8; /* gleam / highlight    */
+  --gold-200: #f7dc86;
+  --gold-300: #f5d465; /* bright edge light    */
+  --gold-400: #efc53c;
+  --gold-500: #e1b832; /* PRIMARY — logo core  */
+  --gold-600: #c99a1e;
+  --gold-700: #a97812; /* deep / shaded        */
+  --gold-800: #7a5409;
+  --gold-900: #4a3205;
+
+  /* ---------------------------------------------------------------------
+     3. COLOR — Typography
+     --------------------------------------------------------------------- */
+  --text-100: #f5f7fa; /* primary   18.9:1 on base */
+  --text-200: #a8b2c1; /* secondary  9.4:1 on base */
+  --text-300: #7a8699; /* tertiary / meta       */
+
+  /* ---------------------------------------------------------------------
+     4. COLOR — Semantic
+     --------------------------------------------------------------------- */
+  --border-subtle: rgba(168, 178, 193, 0.12);
+  --border-default: rgba(168, 178, 193, 0.18);
+  --border-strong: rgba(168, 178, 193, 0.28);
+  --border-gold: rgba(225, 184, 50, 0.34);
+  --border-gold-strong: rgba(225, 184, 50, 0.62);
+
+  /* ---------------------------------------------------------------------
+     5. GRADIENTS
+     --------------------------------------------------------------------- */
+  --grad-gold: linear-gradient(
+    135deg,
+    var(--gold-700) 0%,
+    var(--gold-500) 22%,
+    var(--gold-100) 48%,
+    var(--gold-500) 74%,
+    var(--gold-800) 100%
+  );
+  --grad-gold-soft: linear-gradient(
+    135deg,
+    rgba(225, 184, 50, 0.16) 0%,
+    rgba(225, 184, 50, 0.04) 50%,
+    rgba(225, 184, 50, 0.16) 100%
+  );
+  --grad-gold-line: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold-700) 18%,
+    var(--gold-500) 50%,
+    var(--gold-700) 82%,
+    transparent 100%
+  );
+  --grad-surface: linear-gradient(
+    160deg,
+    rgba(19, 28, 46, 0.92) 0%,
+    rgba(10, 15, 26, 0.96) 55%,
+    rgba(7, 11, 18, 0.98) 100%
+  );
+  --grad-surface-glass: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.02) 38%,
+    rgba(225, 184, 50, 0.035) 100%
+  );
+  --grad-hero-vignette: radial-gradient(
+    120% 90% at 78% 8%,
+    rgba(225, 184, 50, 0.13) 0%,
+    rgba(225, 184, 50, 0.04) 32%,
+    transparent 62%
+  );
+
+  /* ---------------------------------------------------------------------
+     6. TYPOGRAPHY
+     Font: Noto Kufi Arabic (self-hosted, variable 100–900)
+     NOTE: Arabic script must never receive letter-spacing — it breaks
+     letter joining. Tracking is applied only to .latin / .tnum.
+     --------------------------------------------------------------------- */
+  --font-brand: "Noto Kufi Arabic", "Segoe UI", "Tahoma", system-ui,
+    -apple-system, sans-serif;
+
+  /* Fluid type scale — mobile → desktop */
+  --fs-display-1: clamp(2.25rem, 1.18rem + 4.1vw, 4.35rem);
+  --fs-display-2: clamp(1.875rem, 1.3rem + 2.35vw, 3.15rem);
+  --fs-h3: clamp(1.1875rem, 1.06rem + 0.55vw, 1.6rem);
+  --fs-h4: clamp(1.0625rem, 1rem + 0.28vw, 1.1875rem);
+  --fs-lead: clamp(1rem, 0.95rem + 0.32vw, 1.1875rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.8125rem;
+  --fs-2xs: 0.75rem;
+
+  --lh-display: 1.32; /* Kufi has tall ascenders — needs generous leading */
+  --lh-heading: 1.45;
+  --lh-body: 1.9; /* Arabic body copy reads best at 1.8–2.0 */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* ---------------------------------------------------------------------
+     7. SPACING — 4px base rhythm
+     --------------------------------------------------------------------- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+  --space-5xl: 6.5rem;
+
+  --section-y: clamp(4.5rem, 3.1rem + 5.4vw, 8.25rem);
+  --gutter: clamp(1.25rem, 0.85rem + 1.75vw, 2.75rem);
+
+  /* ---------------------------------------------------------------------
+     8. LAYOUT
+     --------------------------------------------------------------------- */
+  --container: 1200px;
+  --container-text: 62ch; /* comfortable Arabic line length */
+
+  /* ---------------------------------------------------------------------
+     9. RADII
+     --------------------------------------------------------------------- */
+  --radius-2xs: 6px;
+  --radius-xs: 10px;
+  --radius-sm: 14px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-pill: 999px;
+
+  /* ---------------------------------------------------------------------
+     10. ELEVATION — layered, soft, never harsh
+     --------------------------------------------------------------------- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.42);
+  --shadow-md: 0 10px 26px -8px rgba(0, 0, 0, 0.6),
+    0 3px 8px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 26px 62px -20px rgba(0, 0, 0, 0.72),
+    0 10px 24px -10px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 44px 96px -30px rgba(0, 0, 0, 0.82),
+    0 18px 40px -14px rgba(0, 0, 0, 0.55);
+  --shadow-gold: 0 18px 44px -18px rgba(225, 184, 50, 0.42);
+  --shadow-gold-strong: 0 28px 66px -20px rgba(225, 184, 50, 0.55);
+  --shadow-inset-top: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-inset-gold: inset 0 1px 0 rgba(255, 233, 168, 0.22);
+
+  /* ---------------------------------------------------------------------
+     11. MOTION
+     --------------------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 620ms;
+  --dur-slower: 1100ms;
+
+  /* ---------------------------------------------------------------------
+     12. Z-INDEX
+     --------------------------------------------------------------------- */
+  --z-base: 1;
+  --z-deco: 2;
+  --z-overlay: 5;
+  --z-content: 10;
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-top: 999;
+
+  /* ---------------------------------------------------------------------
+     13. MISC
+     --------------------------------------------------------------------- */
+  --header-h: 76px;
+  --blur-glass: 14px;
+  --grain-opacity: 0.035;
+
+  /* ---------------------------------------------------------------------
+     14. RUNTIME PROPERTIES
+     Written by JavaScript (assets/js/main.js) or inline style attributes.
+     Declared here for discoverability; every rule supplies a fallback,
+     so the page renders correctly even if the script never runs.
+     --------------------------------------------------------------------- */
+  --rx: 0deg; /* 3D tilt  — .lift__card, from pointer position */
+  --ry: 0deg; /* 3D tilt  — .lift__card, from pointer position */
+  --mx: 50%; /* pointer-tracked card glow X */
+  --my: 0%; /* pointer-tracked card glow Y */
+  --py: 0px; /* hero parallax offset */
+  --fill: 0%; /* stat meter width on reveal */
+  --reveal-delay: 0ms; /* per-item scroll-reveal stagger */
+}
+
+/* ==========================================================================
+   RESPONSIVE TYPE + HEADER HEIGHT
+   ========================================================================== */
+@media (max-width: 767px) {
+  :root {
+    --header-h: 66px;
+    --lh-body: 1.85;
+  }
+}

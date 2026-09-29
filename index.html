@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  Sorouh Alshami Company Ltd. / شركة صروح الشامي المحدودة
+  Ready-mix concrete supply + general contracting — Riyadh, Saudi Arabia
+  ============================================================================
+  Single-page marketing site. No build step, no runtime dependencies.
+
+  BEFORE GOING LIVE — search this file for "REPLACE-ME":
+    · canonical / og:url / og:image / twitter:image → the real public URL
+
+  Contact details are live (phone, WhatsApp, email, address, socials).
+  Project photos are real. Blog lives in ./blog/ — see blog/index.html.
+  ============================================================================
+-->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ===================================================================
+         SEO — primary
+         =================================================================== -->
+    <title>خرسانة جاهزة ومقاولات عامة بالرياض | صروح الشامي</title>
+    <meta
+      name="description"
+      content="شركة صروح الشامي تقدم توريد الخرسانة الجاهزة والمقاولات العامة في الرياض للمشاريع السكنية والتجارية، مع خدمات الضخ وطلب عرض سعر عبر واتساب."
+    />
+    <meta name="keywords" content="خرسانة جاهزة بالرياض, مقاولات عامة بالرياض, توريد خرسانة جاهزة, شركة خرسانة جاهزة بالرياض, شركة مقاولات بالرياض, صب خرسانة, ضخ خرسانة, بناء فلل بالرياض" />
+    <meta name="author" content="شركة صروح الشامي المحدودة" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#05070c" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- REPLACE-ME (domain) — set to the real public URL before going live -->
+    <link rel="canonical" href="https://REPLACE-ME.example/" />
+
+    <!-- ===================================================================
+         Open Graph / Twitter
+         =================================================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_SA" />
+    <meta property="og:site_name" content="شركة صروح الشامي المحدودة" />
+    <meta property="og:title" content="خرسانة جاهزة ومقاولات عامة بالرياض | صروح الشامي" />
+    <meta
+      property="og:description"
+      content="شركة صروح الشامي تقدم توريد الخرسانة الجاهزة والمقاولات العامة في الرياض للمشاريع السكنية والتجارية، مع خدمات الضخ وطلب عرض سعر عبر واتساب."
+    />
+    <meta property="og:url" content="https://REPLACE-ME.example/" />
+    <!-- REPLACE-ME (social image) — 1200×630 recommended -->
+    <meta property="og:image" content="https://REPLACE-ME.example/assets/img/projects/south-narjis-roof.webp" />
+    <meta property="og:image:alt" content="مضخة خرسانة أثناء تنفيذ أعمال الصب في مشروع بالرياض" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="خرسانة جاهزة ومقاولات عامة بالرياض | صروح الشامي" />
+    <meta
+      name="twitter:description"
+      content="توريد الخرسانة الجاهزة وتنفيذ أعمال المقاولات العامة في الرياض، مع خدمات الضخ وطلب عرض سعر عبر واتساب."
+    />
+    <meta name="twitter:image" content="https://REPLACE-ME.example/assets/img/projects/south-narjis-roof.webp" />
+
+    <!-- ===================================================================
+         Icons + manifest
+         =================================================================== -->
+    <link rel="icon" type="image/png" sizes="150x150" href="assets/img/favicon-150.png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-180.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- ===================================================================
+         Fonts — self-hosted subset, preloaded to avoid a flash of fallback
+         =================================================================== -->
+    <link
+      rel="preload"
+      href="assets/fonts/NotoKufiArabic-arabic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/NotoKufiArabic-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- ===================================================================
+         Styles
+         =================================================================== -->
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+
+    <!-- Marks that JS is available so scroll-reveal styles only apply then -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Deferred: never blocks rendering -->
+    <script src="assets/js/main.js" defer></script>
+
+    <!-- ===================================================================
+         Structured data — GeneralContractor + service catalogue
+         REPLACE-ME (domain) — set to the real public URL before going live.
+         =================================================================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GeneralContractor",
+        "@id": "https://REPLACE-ME.example/#business",
+        "name": "شركة صروح الشامي المحدودة",
+        "alternateName": "Sorouh Alshami Company Ltd.",
+        "slogan": "نبني الجودة… ونرسخ الثقة",
+        "description": "شركة صروح الشامي لتوريد الخرسانة الجاهزة وتنفيذ أعمال المقاولات العامة في الرياض، مع خدمات الضخ وطلب عرض سعر عبر واتساب.",
+        "url": "https://REPLACE-ME.example/",
+        "logo": "https://REPLACE-ME.example/assets/img/logo.png",
+        "image": "https://REPLACE-ME.example/assets/img/projects/south-narjis-roof.webp",
+        "telephone": "+966500944612",
+        "email": "info@suruhconcrete.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "عبدالله باروم، القيروان",
+          "addressLocality": "الرياض",
+          "addressRegion": "الرياض",
+          "addressCountry": "SA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 24.7136,
+          "longitude": 46.6753
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "الرياض"
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61586665884964",
+          "https://www.instagram.com/sorouhashami/",
+          "https://www.linkedin.com/company/126093903",
+          "https://x.com/sorouhashami",
+          "https://www.tiktok.com/@sorouhalshami",
+          "https://www.youtube.com/@sorouhashami",
+          "https://snapchat.com/t/Y8xwXwjb"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+966500944612",
+          "contactType": "sales",
+          "areaServed": "SA",
+          "availableLanguage": ["ar"]
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "07:00",
+            "closes": "19:00"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "خدمات شركة صروح الشامي",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "خرسانة جاهزة بالرياض" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "توريد الخرسانة الجاهزة" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ضخ الخرسانة" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "صب الخرسانة" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "خرسانة فلل بالرياض" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "المقاولات العامة بالرياض" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "بناء فلل بالرياض" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "تنفيذ عظم" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "تشطيب" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ترميم" } }
+          ]
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
+
+    <div class="page">
+      <!-- =================================================================
+           HEADER
+           ================================================================= -->
+      <header class="site-header">
+        <div class="container site-header__inner">
+          <!-- Official logo, used verbatim -->
+          <a class="logo" href="#top" aria-label="شركة صروح الشامي المحدودة — الصفحة الرئيسية">
+            <img
+              class="logo__img"
+              src="assets/img/logo.png"
+              alt="شعار شركة صروح الشامي المحدودة"
+              width="880"
+              height="695"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </a>
+
+          <nav class="site-nav" aria-label="التنقل الرئيسي">
+            <a class="site-nav__link" href="#about" data-spy>عن الشركة</a>
+            <a class="site-nav__link" href="#services" data-spy>خدماتنا</a>
+            <a class="site-nav__link" href="#why" data-spy>لماذا نحن</a>
+            <a class="site-nav__link" href="#process" data-spy>مراحل العمل</a>
+            <a class="site-nav__link" href="#projects" data-spy>مشاريعنا</a>
+            <a class="site-nav__link" href="#blog" data-spy>المدونة</a>
+            <a class="site-nav__link" href="#faq" data-spy>الأسئلة</a>
+          </nav>
+
+          <div class="site-header__actions">
+            <!-- Phone -->
+            <a class="btn btn--primary btn--sm" href="tel:+966500944612">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+              </svg>
+              اطلب عرض سعر
+            </a>
+
+            <button
+              class="burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-drawer"
+              aria-label="فتح قائمة التنقل"
+            >
+              <span class="burger__box" aria-hidden="true">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile drawer -->
+      <div class="drawer" id="mobile-drawer" aria-hidden="true">
+        <a class="drawer__link" href="#about">
+          <span>عن الشركة</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#services">
+          <span>خدماتنا</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#why">
+          <span>لماذا نحن</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#process">
+          <span>مراحل العمل</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#projects">
+          <span>مشاريعنا</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#faq">
+          <span>الأسئلة الشائعة</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+        <a class="drawer__link" href="#contact">
+          <span>تواصل معنا</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </a>
+
+        <div class="drawer__cta">
+          <a class="btn btn--primary btn--block" href="#contact">اطلب الخدمة الآن</a>
+          <!-- WhatsApp -->
+          <a
+            class="btn btn--ghost btn--block"
+            href="https://wa.me/966500944612"
+            data-wa="966500944612"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            واتساب
+          </a>
+        </div>
+      </div>
+
+      <main id="main">
+        <!-- ===============================================================
+             1 · HERO
+             =============================================================== -->
+        <section class="hero" id="top">
+          <div class="hero__bg" aria-hidden="true">
+            <span class="hero__glow hero__glow--a"></span>
+            <span class="hero__glow hero__glow--b"></span>
+            <span class="hero__grid"></span>
+            <img class="hero__emblem" src="assets/img/logo.png" alt="" aria-hidden="true" width="880" height="695" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="container hero__inner">
+            <!-- Text column -->
+            <div class="hero__content">
+              <p class="hero__badge" data-reveal="fade">
+                <b>الرياض</b>
+                خدماتنا متاحة داخل الرياض فقط
+              </p>
+
+              <!-- No data-reveal here: main.js gives the two lines their own
+                   masked reveal, and the two motions would fight. -->
+              <h1 class="hero__title">
+                <span>خرسانة جاهزة</span>
+                <span><em>ومقاولات عامة في الرياض</em></span>
+              </h1>
+
+              <p class="hero__slogan" data-reveal style="--reveal-delay: 160ms">
+                نبني الجودة… ونرسخ الثقة
+              </p>
+
+              <p class="hero__text" data-reveal style="--reveal-delay: 220ms">
+                حلول احترافية لتوريد الخرسانة الجاهزة وتنفيذ أعمال المقاولات العامة
+                داخل الرياض، بجودة موثوقة وتنفيذ منظم يعكس خبرة شركة صروح الشامي.
+              </p>
+
+              <div class="hero__actions" data-reveal style="--reveal-delay: 300ms">
+                <a class="btn btn--primary" href="#contact">
+                  اطلب الخدمة الآن
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                  </svg>
+                </a>
+
+                <!-- WhatsApp -->
+                <a
+                  class="btn btn--ghost"
+                  href="https://wa.me/966500944612"
+                  data-wa="966500944612"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.56 3.75 1.53 5.28L2 22l5.02-1.68a9.8 9.8 0 0 0 5.02 1.37h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.47 2 12.04 2Zm0 17.94h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.1 1.04 1.04-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.67-8.17 8.18-8.17a8.13 8.13 0 0 1 5.78 2.4 8.1 8.1 0 0 1 2.4 5.78c0 4.5-3.67 8.17-8.17 8.17Zm4.49-6.12c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.63.8-.77.97-.14.16-.28.18-.53.06a6.6 6.6 0 0 1-1.93-1.19 7.26 7.26 0 0 1-1.34-1.66c-.14-.25-.01-.38.11-.5.11-.12.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"
+                    />
+                  </svg>
+                  تواصل معنا
+                </a>
+              </div>
+
+              <ul class="hero__trust" data-reveal style="--reveal-delay: 380ms">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg>
+                  توريد وصب الخرسانة
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg>
+                  تنفيذ المقاولات العامة
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg>
+                  التزام بالمواعيد
+                </li>
+              </ul>
+            </div>
+
+            <!-- 3D visual stage -->
+            <div class="hero__stage" data-parallax>
+              <span class="hero__ring" aria-hidden="true"></span>
+
+              <div class="hero__slab">
+                <div class="hero__slab-face">
+                  <img
+                    class="hero__slab-logo"
+                    src="assets/img/logo.png"
+                    alt="شعار شركة صروح الشامي المحدودة"
+                    width="880"
+                    height="695"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+
+              <span class="hero__shadow" aria-hidden="true"></span>
+
+              <p class="hero__chip hero__chip--1">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="9" /></svg>
+                خرسانة جاهزة
+              </p>
+              <p class="hero__chip hero__chip--2">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" /></svg>
+                تنفيذ عظم وتشطيب
+              </p>
+              <p class="hero__chip hero__chip--3">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                داخل الرياض
+              </p>
+            </div>
+          </div>
+
+          <a class="hero__scroll" href="#about" aria-label="انتقل إلى قسم عن الشركة">
+            <span class="hero__scroll-line" aria-hidden="true"></span>
+            <span>مرّر للأسفل</span>
+          </a>
+        </section>
+
+        <!-- ===============================================================
+             2 · ABOUT
+             =============================================================== -->
+        <section class="section section--defer" id="about" aria-labelledby="about-title">
+          <div class="container about__inner">
+            <div class="about__copy" data-reveal>
+              <p class="eyebrow">عن الشركة</p>
+              <h2 id="about-title">
+                شريك موثوق في <span class="gold-text--grad">الخرسانة والمقاولات</span> بالرياض
+              </h2>
+              <div class="rule" aria-hidden="true"></div>
+
+              <p class="about__lead">
+                شركة صروح الشامي المحدودة شركة متخصصة تعمل داخل الرياض، تقدّم خدمات
+                توريد الخرسانة الجاهزة وتنفيذ أعمال المقاولات العامة. نعمل بعقلية
+                هندسية دقيقة تبدأ من دراسة الاحتياج وتنتهي بتسليم مُنظَّم يطابق
+                المواصفات المتفق عليها.
+              </p>
+
+              <div class="about__points">
+                <div class="about__point">
+                  <span class="about__point-num" aria-hidden="true">1</span>
+                  <div>
+                    <b>توريد خرسانة جاهزة داخل الرياض</b>
+                    <p>توريد الخرسانة الجاهزة وفق المواصفات المطلوبة لكل نوع من مشاريع الفلل والمباني السكنية والتجارية.</p>
+                  </div>
+                </div>
+
+                <div class="about__point">
+                  <span class="about__point-num" aria-hidden="true">2</span>
+                  <div>
+                    <b>تنفيذ منظم ومتابعة دقيقة</b>
+                    <p>جدول زمني واضح، وفرق متخصصة، ومتابعة مستمرة تضمن جاهزية الموقع وجودة التنفيذ في كل مرحلة.</p>
+                  </div>
+                </div>
+
+                <div class="about__point">
+                  <span class="about__point-num" aria-hidden="true">3</span>
+                  <div>
+                    <b>تغطية شاملة داخل الرياض</b>
+                    <p>نخدم جميع أحياء الرياض، مع مرونة في التوريد والتنسيق حسب احتياج كل مشروع.</p>
+                  </div>
+                </div>
+              </div>
+
+              <a class="btn btn--ghost" href="#services">
+                استكشف خدماتنا
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              </a>
+            </div>
+
+            <!-- Technical illustration panel (inline SVG line art) -->
+            <div class="about__visual" data-reveal="scale" style="--reveal-delay: 120ms">
+              <div class="about__art">
+                <!-- Real site photo, dimmed behind the technical line art -->
+                <img
+                  class="about__photo"
+                  src="assets/img/about-engineers.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width="500"
+                  height="234"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <svg viewBox="0 0 400 300" role="img" aria-label="رسم فني لمشروع فيلا قيد الإنشاء مع رافعة وأعمدة خرسانية">
+                  <!-- ground -->
+                  <path class="dim" d="M20 268h360" />
+                  <path class="dim" d="M40 258v20M120 258v20M200 258v20M280 258v20M360 258v20" />
+
+                  <!-- main villa mass -->
+                  <path d="M92 258V132l58-38 58 38v126" />
+                  <path d="M92 132h116" />
+                  <path d="M150 94V70" />
+                  <!-- upper block -->
+                  <path d="M208 258v-70l44-26 44 26v70" />
+                  <path d="M208 188h88" />
+                  <!-- windows ground floor -->
+                  <rect x="108" y="164" width="30" height="34" rx="2" class="solid" />
+                  <rect x="160" y="164" width="30" height="34" rx="2" class="solid" />
+                  <!-- door -->
+                  <path d="M136 258v-40a12 12 0 0 1 12-12h8a12 12 0 0 1 12 12v40" />
+                  <!-- upper windows -->
+                  <rect x="112" y="146" width="0" height="0" />
+                  <rect x="222" y="204" width="26" height="30" rx="2" class="solid" />
+                  <rect x="258" y="204" width="26" height="30" rx="2" class="solid" />
+
+                  <!-- rebar columns rising from the slab -->
+                  <path class="dim" d="M104 132V96M118 132V96M104 96h14M104 102h14M104 108h14M104 114h14" />
+                  <path class="dim" d="M172 132V96M186 132V96M172 96h14M172 102h14M172 108h14M172 114h14" />
+
+                  <!-- crane -->
+                  <path d="M330 268V96" />
+                  <path d="M330 96l-96 26" />
+                  <path d="M330 96l58 16" />
+                  <path class="dim" d="M330 96l-24 30h48z" />
+                  <path d="M234 122v34" />
+                  <path d="M228 156h12l-6 10z" class="solid" />
+                  <path class="dim" d="M320 130l-1 0M280 150l-1 0M240 170l-1 0" />
+                  <path d="M306 268v-18h48v18" />
+
+                  <!-- dimension lines -->
+                  <path class="dim" d="M40 120h-14M40 120v130" />
+                  <path class="dim" d="M20 120h10M20 250h10" />
+                  <path class="dim" d="M14 120v130" />
+                  <path class="dim" d="M10 120h8M10 250h8" />
+
+                  <!-- floating section marker -->
+                  <path class="dim" d="M360 60h24v24h-24z" />
+                  <path class="dim" d="M366 72h12M372 66v12" />
+                </svg>
+              </div>
+
+              <div class="about__specs">
+                <div class="about__spec">
+                  <b class="tnum">10+</b>
+                  <span>خدمة متكاملة</span>
+                </div>
+                <div class="about__spec">
+                  <b class="tnum">100%</b>
+                  <span>داخل الرياض</span>
+                </div>
+                <div class="about__spec">
+                  <b class="tnum">5</b>
+                  <span>مراحل تنفيذ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             3 · SERVICES
+             =============================================================== -->
+        <section class="section section--alt section--defer" id="services" aria-labelledby="services-title">
+          <div class="container">
+            <div class="section-head section-head--center" data-reveal>
+              <p class="eyebrow">خدماتنا</p>
+              <h2 id="services-title">
+                خدمات <span class="gold-text--grad">الخرسانة الجاهزة والمقاولات</span> في الرياض
+              </h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p>
+                نغطي دورة المشروع من توريد الخرسانة الجاهزة وضخها وصبّها، إلى
+                تنفيذ أعمال المقاولات العامة والتشطيب والتزميم — بفريق واحد ومسؤولية واحدة.
+              </p>
+            </div>
+
+            <!-- Group A · core concrete services -->
+            <div class="group">
+              <h3 class="group-label">الخرسانة الجاهزة والتوريد</h3>
+
+              <div class="services__grid">
+                <!-- 1 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 0ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">01</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M1.8 15.6v-4.9a1 1 0 0 1 1-1h6.6a1 1 0 0 1 1 1v4.9" />
+                        <path d="M10.4 11.4h3.1a1 1 0 0 1 .8.42l2 2.66v1.12" />
+                        <path d="M1.8 17.6h2.1M6.6 17.6h5.4M14.6 17.6h5.4" />
+                        <circle cx="5.2" cy="17.7" r="1.85" />
+                        <circle cx="16.6" cy="17.7" r="1.85" />
+                        <path d="M3.4 9.7V8.2A2.7 2.7 0 0 1 6.1 5.5h2.3a2.7 2.7 0 0 1 2.7 2.7v1.5" />
+                        <path d="M3.1 9.7h8.3" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">خرسانة جاهزة بالرياض</h3>
+                    <p class="card__text">
+                      إنتاج وتوريد الخرسانة الجاهزة داخل الرياض بمواصفات مطابقة
+                      للمتطلبات الهندسية، وبكميات تناسب حجم مشروعك.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+
+                <!-- 2 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 70ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">02</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M2 7.6 12 3l10 4.6v8.8L12 21l-10-4.6z" />
+                        <path d="M2 7.6 12 12l10-4.4" />
+                        <path d="M12 12v9" />
+                        <path d="M12 8.2v3.6" />
+                        <path d="M10.3 10.3 12 12l1.7-1.7" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">توريد الخرسانة الجاهزة</h3>
+                    <p class="card__text">
+                      توريد منظم وموثوق، مع جدولة التوريد حسب جاهزية الموقع.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+
+                <!-- 3 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 140ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">03</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M12 21V6.5" />
+                        <path d="M8.4 6.5h7.2" />
+                        <path d="M12 6.5 6.5 3.2h11z" />
+                        <path d="M8.4 12.6c1.9 1.3 3.6 1.3 5.5 0" />
+                        <path d="M8.4 16.2c1.9 1.3 3.6 1.3 5.5 0" />
+                        <path d="M6.4 21h11.2" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">ضخ الخرسانة</h3>
+                    <p class="card__text">
+                      ضخ الخرسانة بالمضخات إلى الطوابق والأماكن الضيقة بدقة وكفاءة.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+
+                <!-- 4 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 210ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">04</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M6 3.2h7.4l-1.9 3.9H4.1z" />
+                        <path d="M9.6 7.1 6.8 15.4" />
+                        <path d="M4.6 15.4h8.4" />
+                        <path d="M8.8 18.4v0.01M12 19.8v0.01M6.6 20.6v0.01" />
+                        <path d="M16.4 5.6h3.4v11.2h-3.4z" />
+                        <path d="M16.4 9.4h3.4M16.4 12.4h3.4" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">صب الخرسانة</h3>
+                    <p class="card__text">
+                      صب الخرسانة للأساسات والألواح بإشراف هندسي.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+
+                <!-- 5 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 280ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">05</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M2.6 10.4 12 4l9.4 6.4" />
+                        <path d="M4.8 10.4V20h14.4v-9.6" />
+                        <path d="M9.4 20v-5.2h5.2V20" />
+                        <path d="M7.4 13.4h2M14.6 13.4h2" />
+                        <path d="M2.6 10.4v2.2M21.4 10.4v2.2" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">خرسانة فلل بالرياض</h3>
+                    <p class="card__text">
+                      حلول خرسانية مخصصة للفلل داخل الرياض.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+
+                <!-- 6 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 350ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">06</span>
+                    <span class="icon-tile" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4.5 21V4.4h9.9" />
+                        <path d="M4.5 8.6h9.9M4.5 13.4h9.9" />
+                        <path d="M14.4 21v-4.6h5.1V21" />
+                        <path d="M2.4 21h19.2" />
+                        <path d="M8 21v-3.4h3V21" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">المقاولات العامة بالرياض</h3>
+                    <p class="card__text">
+                      تنفيذ أعمال المقاولات العامة للمشاريع السكنية والتجارية.
+                    </p>
+                    <span class="card__more">
+                      خدمة أساسية
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                    </span>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <!-- Group B · building & finishing services -->
+            <div class="group">
+              <h3 class="group-label">البناء والتشطيب والترميم</h3>
+
+              <div class="services__grid services__grid--4">
+                <!-- 7 -->
+                <div class="lift" data-tilt data-reveal>
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service service--compact">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">07</span>
+                    <span class="icon-tile icon-tile--sm" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M2.4 20.6h19.2" />
+                        <path d="M5 20.6V10l7-4.6L19 10v10.6" />
+                        <path d="M9.2 20.6v-6.4h5.6v6.4" />
+                        <path d="M8 12.6h1.8M14.2 12.6H16" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">بناء فلل بالرياض</h3>
+                    <p class="card__text">
+                      بناء فلل من الهيكل الإنشائي حتى التسليم النهائي بجدول زمني واضح.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- 8 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 80ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service service--compact">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">08</span>
+                    <span class="icon-tile icon-tile--sm" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M3 21h18" />
+                        <path d="M6 21V6.5M18 21V6.5M6 6.5h12" />
+                        <path d="M6 12h12M6 16.5h12" />
+                        <path d="M9 6.5V3.2M15 6.5V3.2" />
+                        <path d="M9 3.2h6" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">تنفيذ عظم</h3>
+                    <p class="card__text">
+                      تنفيذ الأعمال الخرسانية والتحويلات مع ضبط التسليح حسب متطلبات الموقع.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- 9 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 160ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service service--compact">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">09</span>
+                    <span class="icon-tile icon-tile--sm" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4.2 4.6h11.2v3.2H4.2z" />
+                        <path d="M13.4 7.8h2.8v5.6h-2.8z" />
+                        <path d="M11 13.4h4.6v7.2H11z" />
+                        <path d="M11 16.4h4.6" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">تشطيب</h3>
+                    <p class="card__text">
+                      تشطيب داخلي وخارجي بلمسات نهائية مدروسة وتفاصيل نظيفة.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- 10 -->
+                <div class="lift" data-tilt data-reveal style="--reveal-delay: 240ms">
+                  <span class="lift__plate" aria-hidden="true"></span>
+                  <article class="card lift__card service service--compact">
+                    <span class="card__glow" aria-hidden="true"></span>
+                    <span class="card__sheen" aria-hidden="true"></span>
+                    <span class="service__index tnum" aria-hidden="true">10</span>
+                    <span class="icon-tile icon-tile--sm" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M3.4 21h17.2" />
+                        <path d="M5.4 21V8.2l6.6-4.4 6.6 4.4V21" />
+                        <path d="M8.6 12.6h2.2M13.2 12.6h2.2" />
+                        <path d="M14.8 3.2 20.6 9" />
+                        <path d="M18.2 6.6 20.6 9l-1.8 1.8" />
+                      </svg>
+                    </span>
+                    <h3 class="card__title">ترميم</h3>
+                    <p class="card__text">
+                      ترميم ومعالجة الشروخ والتشوهات في الهياكل الخرسانية.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             4 · WHY CHOOSE US
+             =============================================================== -->
+        <section class="section section--defer" id="why" aria-labelledby="why-title">
+          <div class="container">
+            <div class="section-head section-head--center" data-reveal>
+              <p class="eyebrow">لماذا نحن</p>
+              <h2 id="why-title">أسباب تجعل <span class="gold-text--grad">صروح الشامي</span> الخيار الأنسب</h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p>
+                نعمل بمبدأ المسؤولية الكاملة: جودة موثوقة، التزام بالمواعيد، وتغطية
+                داخل الرياض — لأن سمعتنا هي رأس مالنا الحقيقي.
+              </p>
+            </div>
+
+            <div class="why__grid">
+              <div class="lift" data-tilt data-reveal>
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card why__card--feature">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">01</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 2.6 4.4 5.8v5.4c0 4.6 3.1 8.7 7.6 10.2 4.5-1.5 7.6-5.6 7.6-10.2V5.8z" />
+                      <path d="M8.8 11.8 11 14l4.2-4.4" />
+                    </svg>
+                  </span>
+                  <h3>جودة موثوقة</h3>
+                  <p class="card__text">
+                    نلتزم بالمواصفات والمتطلبات الهندسية لكل مرحلة، ونستخدم خامات
+                    خرسانية مطابقة للمعايير، لأن الجودة تُبنى من التفاصيل الصغيرة
+                    قبل أن تظهر في النتيجة النهائية.
+                  </p>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 70ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">02</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9.2" />
+                      <path d="M12 6.8V12l3.4 2" />
+                    </svg>
+                  </span>
+                  <h3>التزام بالمواعيد</h3>
+                  <p class="card__text">
+                    جدول زمني واضح يُلتزم به، مع إشعارك بأي تغيير قبل حدوثه لا بعده.
+                  </p>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 140ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">03</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M20 10.4c0 6-8 11.2-8 11.2s-8-5.2-8-11.2a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10.2" r="2.9" />
+                    </svg>
+                  </span>
+                  <h3>تغطية داخل الرياض</h3>
+                  <p class="card__text">
+                    نخدم جميع أحياء الرياض مع مرونة في التغطية والمواعيد.
+                  </p>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 210ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">04</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3.4 21h17.2" />
+                      <path d="M5.6 21V9.4l6-4.2 6 4.2V21" />
+                      <path d="M5.6 13.6h12M5.6 17.2h12" />
+                      <path d="M17.6 21v-6.4h4.2V21" />
+                    </svg>
+                  </span>
+                  <h3>خبرة في المشاريع السكنية والتجارية</h3>
+                  <p class="card__text">
+                    خبرة تراكمية في الفلل والمجمعات السكنية والمشاريع التجارية داخل الرياض.
+                  </p>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 280ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">05</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="4.2" y="3.6" width="15.6" height="17" rx="2" />
+                      <path d="M8.4 8.4h7.2M8.4 12h7.2M8.4 15.6h4.4" />
+                      <path d="M7.6 2.2h8.8" />
+                    </svg>
+                  </span>
+                  <h3>تنظيم في التنفيذ</h3>
+                  <p class="card__text">
+                    موقع العمل منظّم، ومتابعة يومية، وتوثيق يوضّح تقدّم العمل في كل مرحلة.
+                  </p>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 350ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card why__card">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="why__num tnum" aria-hidden="true">06</span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M4.2 13.4v-1.6a7.8 7.8 0 0 1 15.6 0v1.6" />
+                      <rect x="2.6" y="13" width="4" height="6.2" rx="1.8" />
+                      <rect x="17.4" y="13" width="4" height="6.2" rx="1.8" />
+                      <path d="M19.4 19.2v.8a2 2 0 0 1-2 2h-2.8" />
+                    </svg>
+                  </span>
+                  <h3>خدمة احترافية</h3>
+                  <p class="card__text">
+                    تواصل مباشر، رد سريع، واستشارة صادقة توضّح الخيارات والتكلفة قبل البدء.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             5 · PROCESS
+             =============================================================== -->
+        <section class="section section--alt section--defer process" id="process" aria-labelledby="process-title">
+          <div class="container">
+            <div class="section-head section-head--center" data-reveal>
+              <p class="eyebrow">مراحل العمل</p>
+              <h2 id="process-title">كيف <span class="gold-text--grad">نعمل</span>؟</h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p>
+                خمس مراحل واضحة تفصلنا بين طلبك وتسليم المشروع.
+              </p>
+            </div>
+
+            <div class="process__track">
+              <ol class="process__list">
+                <li class="process__step lift" data-tilt data-reveal>
+                  <span class="process__disc" aria-hidden="true"><span class="process__num tnum">1</span></span>
+                  <h3 class="process__title">استلام الطلب</h3>
+                  <p class="process__text">
+                    نتواصل معك ونستقبل تفاصيل المشروع ونحدد نطاق العمل المطلوب.
+                  </p>
+                </li>
+
+                <li class="process__step lift" data-tilt data-reveal style="--reveal-delay: 80ms">
+                  <span class="process__disc" aria-hidden="true"><span class="process__num tnum">2</span></span>
+                  <h3 class="process__title">دراسة الاحتياج</h3>
+                  <p class="process__text">
+                    نحدد الكميات والمواصفات ونراجع الموقع لاختيار الحل الأنسب.
+                  </p>
+                </li>
+
+                <li class="process__step lift" data-tilt data-reveal style="--reveal-delay: 160ms">
+                  <span class="process__disc" aria-hidden="true"><span class="process__num tnum">3</span></span>
+                  <h3 class="process__title">التجهيز والتنسيق</h3>
+                  <p class="process__text">
+                    تجهيز الموقع وتنسيق التوريد والصب مع تحديد التوقيت المناسب.
+                  </p>
+                </li>
+
+                <li class="process__step lift" data-tilt data-reveal style="--reveal-delay: 240ms">
+                  <span class="process__disc" aria-hidden="true"><span class="process__num tnum">4</span></span>
+                  <h3 class="process__title">التنفيذ والتوريد</h3>
+                  <p class="process__text">
+                    بدء التنفيذ وتوريد الخرسانة وضخّها وصبّها وفق الجدول المتفق عليه.
+                  </p>
+                </li>
+
+                <li class="process__step lift" data-tilt data-reveal style="--reveal-delay: 320ms">
+                  <span class="process__disc" aria-hidden="true"><span class="process__num tnum">5</span></span>
+                  <h3 class="process__title">المتابعة وضمان الجودة</h3>
+                  <p class="process__text">
+                    متابعة نهائية للتسليم ومراجعة الجودة ومعالجة أي ملاحظات.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             6 · PROJECTS
+             Real Riyadh projects — district naming only, no client names.
+             Photos: assets/img/projects/*.webp (converted from the live site).
+             =============================================================== -->
+        <section class="section section--defer" id="projects" aria-labelledby="projects-title">
+          <div class="container">
+            <div class="section-head section-head--center" data-reveal>
+              <p class="eyebrow">أبرز المشاريع</p>
+              <h2 id="projects-title">نماذج من <span class="gold-text--grad">أعمالنا</span></h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p>
+                نماذج من الأعمال التي نفذها داخل أحياء الرياض.
+              </p>
+            </div>
+
+            <div class="projects__grid">
+              <!-- Project 1 -->
+              <article class="lift" data-tilt data-reveal>
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/al-arid-roof.webp"
+                      alt="سقف خرساني مسلّح أثناء الصب مع ظهور شبكة الحديد والخرسانة في موقع بناء بالرياض"
+                      width="768"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">سكني</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">صب سقف الدور الثاني – حي العارض</h3>
+                    <p class="project__text">توريد وضخ وصب الخرسانة الجاهزة لتنفيذ صبة سقف الدور الثاني لمشروع سكني في حي العارض بمدينة الرياض، مع تنظيم وصول الخلاطات ومتابعة أعمال الضخ والتوزيع والتسوية بالموقع.</p>
+                    <ul class="project__tags">
+                      <li>صبة سقف</li>
+                      <li>ضخ خرسانة</li>
+                      <li>حي العارض</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 2 -->
+              <article class="lift" data-tilt data-reveal style="--reveal-delay: 70ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/ready-mix-plant.webp"
+                      alt="مصنع خرسانة جاهز يضم وحدات الخلط وصوامع الأسمنت وخلاطات الخرسانة في الرياض"
+                      width="768"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">مصنع</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">جولة داخل مصنع الخرسانة الجاهزة</h3>
+                    <p class="project__text">جولة داخل مصنع الخرسانة الجاهزة للتعرف على مراحل تجهيز وخلط وتحميل الخرسانة قبل توريدها إلى مواقع المشارع السكنية والتجارية في مدينة الرياض.</p>
+                    <ul class="project__tags">
+                      <li>تجهيز</li>
+                      <li>خلط</li>
+                      <li>توريد</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 3 -->
+              <article class="lift" data-tilt data-reveal style="--reveal-delay: 140ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/dhahrat-laban-columns.webp"
+                      alt="مضخة خرسانة ممتدة فوق موقع إنشائي مجهز لصب الأعمدة الخرسانية في الرياض"
+                      width="768"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">أعمدة</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">صب أعمدة الدور الأرضي – حي ظهرة لبن</h3>
+                    <p class="project__text">توريد وضخ وصب الخرسانة الجاهزة لتنفيذ أعمدة الدور الأرضي لمشروع سكني في حي ظهرة لبن بمدينة الرياض، مع تنظيم وصول الخلاطات ومتابعة أعمال الصب والدمك بالموقع.</p>
+                    <ul class="project__tags">
+                      <li>أعمدة</li>
+                      <li>ضخ خرسانة</li>
+                      <li>حي ظهرة لبن</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 4 -->
+              <article class="lift" data-tilt data-reveal style="--reveal-delay: 210ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/south-narjis-roof.webp"
+                      alt="مضخة خرسانة وشاحنة خرسانة جاهزة أثناء تنفيذ أعمال الصب في مشروع بالرياض"
+                      width="768"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">سكني</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">صبة سقف – حي النرجس الجنوبي</h3>
+                    <p class="project__text">توريد وضخ وصب الخرسانة الجاهزة لتنفيذ صبة سقف لمشروع سكني في حي النرجس الجنوبي بمدينة الرياض، مع تنظيم وصول الخلاطات ومتابعة أعمال الصب والتوزيع والتسوية.</p>
+                    <ul class="project__tags">
+                      <li>صبة سقف</li>
+                      <li>حي النرجس</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 5 -->
+              <article class="lift" data-tilt data-reveal style="--reveal-delay: 280ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/al-mahdiyah-roof.webp"
+                      alt="مضخة خرسانة تعمل فوق سقف مسلّح أثناء تنفيذ الصب في الرياض"
+                      width="362"
+                      height="362"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">سكني</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">صبة سقف الدور الأرضي – حي المهدية</h3>
+                    <p class="project__text">توريد وضخ وصب الخرسانة الجاهزة لتنفيذ صبة سقف الدور الأرضي لمشروع سكني في حي المهدية بمدينة الرياض، مع تنظيم وصول الخلاطات ومتابعة أعمال الضخ والتوزيع والتسوية.</p>
+                    <ul class="project__tags">
+                      <li>صبة سقف</li>
+                      <li>حي المهدية</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 6 -->
+              <article class="lift" data-tilt data-reveal style="--reveal-delay: 350ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <div class="card lift__card project">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+
+                  <div class="project__art">
+                    <img
+                      src="assets/img/projects/al-rimal-blinding.webp"
+                      alt="صبة خرسانة نظافة لأرضية الأساسات في مشروع إنشائي بالرياض"
+                      width="768"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="project__tag">أساسات</span>
+                  </div>
+
+                  <div class="project__body">
+                    <h3 class="project__title">صبة نظافة – حي الرمال</h3>
+                    <p class="project__text">توريد وصب الخرسانة الجاهزة لتنفيذ صبة نظافة لمشروع سكني في حي الرمال بمدينة الرياض، تمهيدًا لأعمال العزل والقواعد والأساسات مع تنظيم التوريد والتنفيذ بالموقع.</p>
+                    <ul class="project__tags">
+                      <li>صبة نظافة</li>
+                      <li>عزل</li>
+                      <li>حي الرمال</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <p class="section-foot" data-reveal>
+              <a class="btn btn--ghost" href="#contact">
+                اطلب عرض سعر لمشروعك
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             7 · STATS
+             Every figure below is a countable fact about this page/company —
+             no invented percentages, no "years of experience" claim.
+             The four data-meter bars are decorative only (aria-hidden);
+             see README → "Before publishing" if you want to remove them.
+             =============================================================== -->
+        <section class="section section--alt section--defer" aria-labelledby="stats-title">
+          <div class="container">
+            <h2 class="sr-only" id="stats-title">مؤشرات الثقة</h2>
+
+            <div class="stats__grid">
+              <div class="lift" data-tilt data-reveal>
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card stat">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <p class="stat__value"><span data-count="10" data-duration="1500">0</span></p>
+                  <h3 class="stat__label">خدمات متكاملة</h3>
+                  <p class="stat__text">
+                    من توريد الخرسانة الجاهزة وضخّها إلى المقاولات العامة والتشطيب والترميم.
+                  </p>
+                  <span class="stat__meter" data-meter="100" aria-hidden="true"><i></i></span>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 80ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card stat">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <p class="stat__value"><span data-count="5" data-duration="1500">0</span></p>
+                  <h3 class="stat__label">مراحل التنفيذ</h3>
+                  <p class="stat__text">
+                    من استلام الطلب ودراسة الاحتياج إلى التنفيذ والمتابعة وتسليم المشروع.
+                  </p>
+                  <span class="stat__meter" data-meter="96" aria-hidden="true"><i></i></span>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 160ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card stat">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <p class="stat__value"><span data-count="2" data-duration="1500">0</span></p>
+                  <h3 class="stat__label">قطاعان متخصصان</h3>
+                  <p class="stat__text">
+                    توريد الخرسانة الجاهزة، والمقاولات العامة داخل مدينة الرياض.
+                  </p>
+                  <span class="stat__meter" data-meter="100" aria-hidden="true"><i></i></span>
+                </article>
+              </div>
+
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 240ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <article class="card lift__card stat">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <p class="stat__value"><span data-count="6" data-duration="1500">0</span></p>
+                  <h3 class="stat__label">مشاريع مصوّرة</h3>
+                  <p class="stat__text">
+                    نماذج من أعمال الصب في أحياء الرياض، مع صور فوتوغرافية من مواقع العمل.
+                  </p>
+                  <span class="stat__meter" data-meter="92" aria-hidden="true"><i></i></span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             8 · BLOG
+             The five articles below live in /blog/. Their titles, excerpts
+             and reading times are duplicated here on purpose: this page has
+             no JS include, so every word a crawler and a visitor reads must
+             be in the HTML.
+             =============================================================== -->
+        <section class="section section--defer" id="blog" aria-labelledby="blog-title">
+          <div class="container">
+            <div class="section-head section-head--center" data-reveal>
+              <p class="eyebrow">مدونة صروح</p>
+              <h2 id="blog-title">مقالات <span class="gold-text--grad">فنية</span> تهمّك</h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p>
+                شرح عملي لأدق تفاصيل التنفيذ، كتبناه من واقع مواقع البناء في الرياض.
+              </p>
+            </div>
+
+            <div class="blog__grid">
+              <a
+                class="card lift__card post-card"
+                href="blog/general-contracting-riyadh-stages/"
+                data-reveal
+                style="--reveal-delay: 0ms"
+              >
+                <span class="card__glow" aria-hidden="true"></span>
+                <span class="card__sheen" aria-hidden="true"></span>
+
+                <span class="post-card__art">
+                  <img
+                    src="assets/img/projects/dhahrat-laban-columns.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="768"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="post-card__kind">مقال شامل</span>
+                </span>
+
+                <span class="post-card__body">
+                  <h3 class="post-card__title">
+                    مقاولات عامة بالرياض: مراحل تنفيذ المشروع من الحفر حتى التسليم
+                  </h3>
+                  <p class="post-card__text">
+                    سبع مراحل فنية من الحفر حتى التسليم، ومعايير القبول في كل مرحلة، ومتى
+                    تتوقف الأعمال قبل أن تتحول إلى إعادة تنفيذ مكلفة.
+                  </p>
+                  <span class="post-card__foot">
+                    <span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.2 2" /></svg>
+                      <span class="tnum">12</span> دقيقة
+                    </span>
+                    <span>مقال شامل</span>
+                  </span>
+                </span>
+              </a>
+
+              <a
+                class="card lift__card post-card"
+                href="blog/blinding-concrete/"
+                data-reveal
+                style="--reveal-delay: 90ms"
+              >
+                <span class="card__glow" aria-hidden="true"></span>
+                <span class="card__sheen" aria-hidden="true"></span>
+
+                <span class="post-card__art">
+                  <img
+                    src="assets/img/projects/al-rimal-blinding.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="768"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="post-card__kind">شرح عملي</span>
+                </span>
+
+                <span class="post-card__body">
+                  <h3 class="post-card__title">
+                    صبة النظافة: متى تُستخدم وما سماكتها وتكلفتها
+                  </h3>
+                  <p class="post-card__text">
+                    أول صبّ في المشروع وأرخص بند خرساني فيه: لماذا يطلبها المهندس، وما
+                    السماكة المناسبة، وخطوات التنفيذ بلا اختصار.
+                  </p>
+                  <span class="post-card__foot">
+                    <span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.2 2" /></svg>
+                      <span class="tnum">9</span> دقيقة
+                    </span>
+                    <span>شرح عملي</span>
+                  </span>
+                </span>
+              </a>
+
+              <a
+                class="card lift__card post-card"
+                href="blog/concrete-exposure-classes-r1-r2-r3/"
+                data-reveal
+                style="--reveal-delay: 180ms"
+              >
+                <span class="card__glow" aria-hidden="true"></span>
+                <span class="card__sheen" aria-hidden="true"></span>
+
+                <span class="post-card__art">
+                  <img
+                    src="assets/img/projects/ready-mix-plant.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="768"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="post-card__kind">مرجع فني</span>
+                </span>
+
+                <span class="post-card__body">
+                  <h3 class="post-card__title">
+                    الفرق بين <span class="latin">R1</span> و
+                    <span class="latin">R2</span> و
+                    <span class="latin">R3</span>: تصنيف التعرض ومتطلبات الخرسانة
+                  </h3>
+                  <p class="post-card__text">
+                    لماذا لا تكفي مقاومة واحدة لكل عناصر المبنى، وكيف يحدد تصنيف التعرض
+                    الحد الأدنى للمقاومة وأقصى نسبة ماء مسموحة.
+                  </p>
+                  <span class="post-card__foot">
+                    <span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.2 2" /></svg>
+                      <span class="tnum">11</span> دقيقة
+                    </span>
+                    <span>مرجع فني</span>
+                  </span>
+                </span>
+              </a>
+
+              <a
+                class="card lift__card post-card"
+                href="blog/concrete-chemical-admixtures/"
+                data-reveal
+                style="--reveal-delay: 270ms"
+              >
+                <span class="card__glow" aria-hidden="true"></span>
+                <span class="card__sheen" aria-hidden="true"></span>
+
+                <span class="post-card__art">
+                  <img
+                    src="assets/img/projects/south-narjis-roof.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="768"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="post-card__kind">شرح عملي</span>
+                </span>
+
+                <span class="post-card__body">
+                  <h3 class="post-card__title">
+                    مضافات الخرسانة: المسرّعات والمثبّطات والمالئات
+                  </h3>
+                  <p class="post-card__text">
+                    ما تفعله كل إضافة داخل الخلطة قبل الصبّ، ولماذا تتغيّر الجرعة بين
+                    الصيف والشتاء، والأخطاء التي تُتكتّل بها الخلطة.
+                  </p>
+                  <span class="post-card__foot">
+                    <span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.2 2" /></svg>
+                      <span class="tnum">10</span> دقيقة
+                    </span>
+                    <span>شرح عملي</span>
+                  </span>
+                </span>
+              </a>
+
+              <a
+                class="card lift__card post-card"
+                href="blog/project-handover-checklist/"
+                data-reveal
+                style="--reveal-delay: 360ms"
+              >
+                <span class="card__glow" aria-hidden="true"></span>
+                <span class="card__sheen" aria-hidden="true"></span>
+
+                <span class="post-card__art">
+                  <img
+                    src="assets/img/projects/al-arid-roof.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="768"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="post-card__kind">دليل عملي</span>
+                </span>
+
+                <span class="post-card__body">
+                  <h3 class="post-card__title">
+                    استلام المشروع قبل التسليم: دليل الفحص الكامل
+                  </h3>
+                  <p class="post-card__text">
+                    ما الذي تتفقده بيدك قبل أن توقّع محضر الاستلام، وما المستندات التي
+                    يجب أن تصلك قبل دفع الدفعة الأخيرة.
+                  </p>
+                  <span class="post-card__foot">
+                    <span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.2 2" /></svg>
+                      <span class="tnum">11</span> دقيقة
+                    </span>
+                    <span>دليل عملي</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <p class="section-foot" data-reveal>
+              <a class="btn btn--ghost" href="blog/">
+                كل المقالات
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             9 · FAQ
+             =============================================================== -->
+        <section class="section section--defer" id="faq" aria-labelledby="faq-title">
+          <div class="container faq__inner">
+            <div>
+              <div class="section-head" data-reveal>
+                <p class="eyebrow">الأسئلة الشائعة</p>
+                <h2 id="faq-title">إجابات <span class="gold-text--grad">سريعة وواضحة</span></h2>
+                <div class="rule" aria-hidden="true"></div>
+                <p>
+                  إذا لم تجد إجابتك هنا، تواصل معنا مباشرة وسنجيبك بكل وضوح.
+                </p>
+              </div>
+
+              <div class="accordion" data-accordion data-reveal>
+                <!-- 1 -->
+                <div class="accordion__item is-open">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="true"
+                      aria-controls="faq-p1"
+                      id="faq-t1"
+                    >
+                      ما هي خدمات شركة صروح الشامي في الرياض؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p1"
+                    role="region"
+                    aria-labelledby="faq-t1"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        نقدّم داخل الرياض خدمات توريد الخرسانة الجاهزة، وضخّها
+                        وصبّها، إضافة إلى أعمال المقاولات العامة وبناء الفلل
+                        والأعمال الخرسانية والتشطيب والترميم. يمكنك التعامل معنا
+                        لخدمة واحدة أو للحزمة كاملة.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p2"
+                      id="faq-t2"
+                    >
+                      هل توفّرون الخرسانة الجاهزة أم التنفيذ فقط؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p2"
+                    role="region"
+                    aria-labelledby="faq-t2"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        الاثنان معاً. نتكفل بتوريد الخرسانة الجاهزة ووسائل
+                        النقل، ونتولى الضخ والصب والتنفيذ، أو نلتزم بتوريد
+                        الخرسانة فقط إذا كان فريق الصب لدى العميل.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p3"
+                      id="faq-t3"
+                    >
+                      ما أنواع الخرسانة التي تقدّمونها؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p3"
+                    role="region"
+                    aria-labelledby="faq-t3"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        نوفّر الخرسانة العادية والمقاواة للعزل وخرسانة البلاطات.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p4"
+                      id="faq-t4"
+                    >
+                      هل تتعاملون مع جميع أحياء الرياض؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p4"
+                    role="region"
+                    aria-labelledby="faq-t4"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        نعم، نطاق عملنا مخصص داخل مدينة الرياض.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p5"
+                      id="faq-t5"
+                    >
+                      كم يستغرق تنفيذ صب الخرسانة لفيلا؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p5"
+                    role="region"
+                    aria-labelledby="faq-t5"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        المدة تعتمد على حجم المشروع ونوع الأساسات وعدد
+                        الأدوار. بعد دراسة الموقع نقدّم لك جدولاً زمنياً واضحاً
+                        قبل بدء التنفيذ، ونلتزم به.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p6"
+                      id="faq-t6"
+                    >
+                      هل تعملون على مشاريع المقاولات العامة؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p6"
+                    role="region"
+                    aria-labelledby="faq-t6"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        نعم، ننفّذ أعمال المقاولات العامة للمشاريع السكنية
+                        والتجارية، بما يشمل الأعمال الخرسانية والتشطيب
+                        والترميم، مع فريق عمل منظّم ومتابعة مباشرة من مشرف
+                        المشروع.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p7"
+                      id="faq-t7"
+                    >
+                      ما الذي يضمن جودة التنفيذ والالتزام بالمواعيد؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p7"
+                    role="region"
+                    aria-labelledby="faq-t7"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        نبدأ بدراسة الاحتياج وتحديد المواصفات، ثم نعرض جدولاً
+                        زمنياً واضحاً. أثناء التنفيذ تتم متابعة يومية لكل مرحلة
+                        قبل الانتقال إلى المرحلة التالية، مع توثيق يوضّح تقدّم
+                        العمل.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="accordion__item">
+                  <h3>
+                    <button
+                      class="accordion__trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="faq-p8"
+                      id="faq-t8"
+                    >
+                      كيف أطلب عرض سعر أو أستشيركم؟
+                      <span class="accordion__sign" aria-hidden="true"></span>
+                    </button>
+                  </h3>
+                  <div
+                    class="accordion__panel"
+                    id="faq-p8"
+                    role="region"
+                    aria-labelledby="faq-t8"
+                  >
+                    <div>
+                      <p class="accordion__answer">
+                        تواصل معنا عبر الهاتف أو الواتساب مع وصف نوع المشروع
+                        وموقعه ونطاق العمل المطلوب، وسنعود إليك بعرض واضح خلال
+                        وقت قصير.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sticky help card -->
+            <aside class="faq__aside" data-reveal="scale">
+              <div class="faq__aside-card">
+                <span class="icon-tile" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9.2" />
+                    <path d="M9.6 9.4a2.5 2.5 0 1 1 3.3 2.4c-.6.2-.9.8-.9 1.4v.4" />
+                    <path d="M12 16.6v.01" />
+                  </svg>
+                </span>
+                <h3>لم تجد إجابتك؟</h3>
+                <p>
+                  أرسل لنا تفاصيل مشروعك وسنرد عليك مباشرة بمواصفات وتكلفة
+                  واضحة ودون التزام.
+                </p>
+                <!-- WhatsApp -->
+                <a
+                  class="btn btn--primary btn--block"
+                  href="https://wa.me/966500944612"
+                  data-wa="966500944612"
+                  data-wa-msg="مرحباً، لدي استفسار عن خدمات خرسانة جاهزة ومقاولات عامة في الرياض."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  اسأل عبر الواتساب
+                </a>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             10 · CTA
+             =============================================================== -->
+        <section class="section section--defer cta" aria-labelledby="cta-title">
+          <div class="container">
+            <div class="cta__panel" data-reveal="scale">
+              <span class="cta__rings" aria-hidden="true"><i></i><i></i><i></i></span>
+
+              <h2 id="cta-title">
+                جاهز تبدأ مشروعك <span class="gold-text--grad">بثقة</span>؟
+              </h2>
+              <p class="cta__slogan">نبني الجودة… ونرسخ الثقة</p>
+              <p class="cta__text">
+                تواصل معنا اليوم للحصول على استشارة فنية مجانية وعرض سعر واضح
+                لخدمات خرسانة جاهزة ومقاولات عامة داخل الرياض.
+              </p>
+
+              <div class="cta__actions">
+                <a class="btn btn--primary" href="tel:+966500944612">
+                  <!-- Phone -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+                  </svg>
+                  اتصل بنا الآن
+                </a>
+
+                <a
+                  class="btn btn--ghost"
+                  href="https://wa.me/966500944612"
+                  data-wa="966500944612"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <!-- WhatsApp -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.56 3.75 1.53 5.28L2 22l5.02-1.68a9.8 9.8 0 0 0 5.02 1.37h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.47 2 12.04 2Zm0 17.94h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.1 1.04 1.04-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.67-8.17 8.18-8.17a8.13 8.13 0 0 1 5.78 2.4 8.1 8.1 0 0 1 2.4 5.78c0 4.5-3.67 8.17-8.17 8.17Zm4.49-6.12c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.63.8-.77.97-.14.16-.28.18-.53.06a6.6 6.6 0 0 1-1.93-1.19 7.26 7.26 0 0 1-1.34-1.66c-.14-.25-.01-.38.11-.5.11-.12.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"
+                    />
+                  </svg>
+                  راسلنا على الواتساب
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             11 · CONTACT
+             Live details: +966500944612 · info@suruhconcrete.com
+             عبدالله باروم، القيروان، الرياض
+             =============================================================== -->
+        <section class="section section--alt section--defer" id="contact" aria-labelledby="contact-title">
+          <div class="container contact__inner">
+            <div class="contact__intro" data-reveal>
+              <p class="eyebrow">تواصل معنا</p>
+              <h2 id="contact-title">نحن <span class="gold-text--grad">جاهزون للبدء</span></h2>
+              <div class="rule" aria-hidden="true"></div>
+              <p class="contact__text">
+                سواء كنت مالك فيلا، أو مقاولاً، أو مشرفاً هندسياً، أو مالك مشروع
+                سكني أو تجاري — تواصل معنا لوصف مشروعك، وسنعود إليك بعرض واضح
+                ومفصّل.
+              </p>
+
+              <p class="contact__note">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 11v5.4" />
+                  <path d="M12 7.8v.01" />
+                </svg>
+                <span>
+                  نستقبل الطلبات داخل مدينة الرياض فقط. أرسل تفاصيل المشروع
+                  (النوع، الموقع، ونطاق العمل) لنرجع إليك بأقرب وقت.
+                </span>
+              </p>
+
+              <p class="contact__hours">
+                <strong>ساعات العمل:</strong> السبت – الخميس، 7:00 صباحاً – 7:00 مساءً ·
+                استقبال الطلبات على مدار الساعة
+              </p>
+            </div>
+
+            <div class="contact__grid">
+              <!-- Website -->
+              <div class="lift" data-tilt data-reveal>
+                <span class="lift__plate" aria-hidden="true"></span>
+                <a
+                  class="card lift__card contact__card"
+                  href="https://suruhconcrete.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9.2" />
+                      <path d="M2.8 12h18.4" />
+                      <path d="M12 2.8c2.4 2.6 3.7 5.8 3.7 9.2s-1.3 6.6-3.7 9.2c-2.4-2.6-3.7-5.8-3.7-9.2S9.6 5.4 12 2.8Z" />
+                    </svg>
+                  </span>
+                  <span class="contact__label">الموقع الإلكتروني</span>
+                  <span class="contact__value latin" dir="ltr">suruhconcrete.com</span>
+                </a>
+              </div>
+
+              <!-- Phone -->
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 70ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <a class="card lift__card contact__card" href="tel:+966500944612">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+                    </svg>
+                  </span>
+                  <span class="contact__label">الهاتف</span>
+                  <span class="contact__value latin" dir="ltr">+966 50 094 4612</span>
+                </a>
+              </div>
+
+              <!-- Email -->
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 140ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <a class="card lift__card contact__card" href="mailto:info@suruhconcrete.com">
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="2.6" y="4.8" width="18.8" height="14.4" rx="2.2" />
+                      <path d="m3.4 6.6 7.5 5.4a2 2 0 0 0 2.2 0l7.5-5.4" />
+                    </svg>
+                  </span>
+                  <span class="contact__label">البريد الإلكتروني</span>
+                  <span class="contact__value latin" dir="ltr">info@suruhconcrete.com</span>
+                </a>
+              </div>
+
+              <!-- WhatsApp -->
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 210ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <a
+                  class="card lift__card contact__card"
+                  href="https://wa.me/966500944612"
+                  data-wa="966500944612"
+                  data-wa-msg="مرحباً، أرغب في الاستفسار عن خدمات خرسانة جاهزة ومقاولات عامة في الرياض."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.56 3.75 1.53 5.28L2 22l5.02-1.68a9.8 9.8 0 0 0 5.02 1.37h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.47 2 12.04 2Zm0 17.94h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.1 1.04 1.04-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.67-8.17 8.18-8.17a8.13 8.13 0 0 1 5.78 2.4 8.1 8.1 0 0 1 2.4 5.78c0 4.5-3.67 8.17-8.17 8.17Zm4.49-6.12c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.63.8-.77.97-.14.16-.28.18-.53.06a6.6 6.6 0 0 1-1.93-1.19 7.26 7.26 0 0 1-1.34-1.66c-.14-.25-.01-.38.11-.5.11-.12.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="contact__label">واتساب</span>
+                  <span class="contact__value latin" dir="ltr">+966 50 094 4612</span>
+                </a>
+              </div>
+
+              <!-- Location -->
+              <div class="lift" data-tilt data-reveal style="--reveal-delay: 280ms">
+                <span class="lift__plate" aria-hidden="true"></span>
+                <a
+                  class="card lift__card contact__card"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87%20%D8%A8%D8%A7%D8%B1%D9%88%D9%85%20%D8%A7%D9%84%D9%82%D9%8A%D8%B1%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="card__glow" aria-hidden="true"></span>
+                  <span class="card__sheen" aria-hidden="true"></span>
+                  <span class="icon-tile" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M20 10.4c0 6-8 11.2-8 11.2s-8-5.2-8-11.2a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10.2" r="2.9" />
+                    </svg>
+                  </span>
+                  <span class="contact__label">العنوان</span>
+                  <span class="contact__value">عبدالله باروم، القيروان، الرياض</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- =================================================================
+           12 · FOOTER
+           ================================================================= -->
+      <footer class="site-footer">
+        <img
+          class="site-footer__art"
+          src="assets/img/logo.png"
+          alt=""
+          width="880"
+          height="695"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        />
+
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__brand">
+              <span class="logo">
+                <img
+                  class="logo__img"
+                  src="assets/img/logo.png"
+                  alt="شعار شركة صروح الشامي المحدودة"
+                  width="880"
+                  height="695"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <p class="site-footer__slogan">نبني الجودة… ونرسخ الثقة</p>
+              <p class="site-footer__about">
+                شركة صروح الشامي المحدودة — توريد الخرسانة الجاهزة وتنفيذ أعمال
+                المقاولات العامة داخل مدينة الرياض، بجودة موثوقة وتنفيذ منظم.
+              </p>
+
+              <!-- Real accounts (7 platforms) taken from the live site -->
+              <ul class="socials" role="list" aria-label="حسابات الشركة على منصات التواصل الاجتماعي">
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61586665884964"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="صفحتنا على فيسبوك"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/sorouhashami/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="حسابنا على إنستقرام"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/126093903"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="شركتنا على لينكدإن"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/sorouhashami"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="حسابنا على منصة إكس"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.tiktok.com/@sorouhalshami"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="حسابنا على تيك توك"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@sorouhashami"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="قناتنا على يوتيوب"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://snapchat.com/t/Y8xwXwjb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="حسابنا على سناب شات"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="site-footer__title">روابط سريعة</h2>
+              <ul class="site-footer__list" role="list">
+                <li><a href="#about">عن الشركة</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#why">لماذا نحن</a></li>
+                <li><a href="#process">مراحل العمل</a></li>
+                <li><a href="#projects">أبرز المشاريع</a></li>
+                <li><a href="#blog">المدونة</a></li>
+                <li><a href="blog/">كل المقالات</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="site-footer__title">تواصل معنا</h2>
+              <ul class="site-footer__list" role="list">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10.4c0 6-8 11.2-8 11.2s-8-5.2-8-11.2a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10.2" r="2.9" /></svg>
+                  <span>عبدالله باروم، القيروان، الرياض</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" /></svg>
+                  <a href="tel:+966500944612" class="latin" dir="ltr">+966 50 094 4612</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="2.2" /><path d="m3.4 6.6 7.5 5.4a2 2 0 0 0 2.2 0l7.5-5.4" /></svg>
+                  <a href="mailto:info@suruhconcrete.com" class="latin">info@suruhconcrete.com</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.2" /><path d="M2.8 12h18.4" /><path d="M12 2.8c2.4 2.6 3.7 5.8 3.7 9.2s-1.3 6.6-3.7 9.2c-2.4-2.6-3.7-5.8-3.7-9.2S9.6 5.4 12 2.8Z" /></svg>
+                  <a href="https://suruhconcrete.com" class="latin">suruhconcrete.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="site-footer__bottom">
+            <p>
+              © <span class="tnum" id="year">2026</span> شركة صروح الشامي المحدودة —
+              جميع الحقوق محفوظة
+            </p>
+            <p class="site-footer__legal">
+              <span>خرسانة جاهزة بالرياض</span>
+              <span aria-hidden="true">·</span>
+              <span>مقاولات عامة بالرياض</span>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Floating actions -->
+    <!-- WhatsApp -->
+    <a
+      class="fab"
+      href="https://wa.me/966500944612"
+      data-wa="966500944612"
+      data-wa-msg="مرحباً، أرغب في الاستفسار عن خدمات خرسانة جاهزة ومقاولات عامة في الرياض."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تواصل معنا عبر الواتساب"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path
+          d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.56 3.75 1.53 5.28L2 22l5.02-1.68a9.8 9.8 0 0 0 5.02 1.37h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.47 2 12.04 2Zm0 17.94h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.1 1.04 1.04-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.67-8.17 8.18-8.17a8.13 8.13 0 0 1 5.78 2.4 8.1 8.1 0 0 1 2.4 5.78c0 4.5-3.67 8.17-8.17 8.17Zm4.49-6.12c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.63.8-.77.97-.14.16-.28.18-.53.06a6.6 6.6 0 0 1-1.93-1.19 7.26 7.26 0 0 1-1.34-1.66c-.14-.25-.01-.38.11-.5.11-.12.25-.29.37-.44.13-.15.17-.25.25-.42.09-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"
+        />
+      </svg>
+    </a>
+
+    <button class="to-top" type="button" aria-label="العودة إلى أعلى الصفحة">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+    </button>
+
+    <script>
+      /* Keeps the copyright year current without a build step */
+      (function () {
+        var el = document.getElementById("year");
+        if (el) el.textContent = String(new Date().getFullYear());
+      })();
+    </script>
+  </body>
+</html>

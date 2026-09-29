@@ -1,0 +1,40 @@
+{
+  "name": "شركة صروح الشامي المحدودة",
+  "short_name": "صروح الشامي",
+  "description": "توريد الخرسانة الجاهزة وتنفيذ أعمال المقاولات العامة داخل مدينة الرياض.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#05070c",
+  "theme_color": "#05070c",
+  "categories": ["business", "construction"],
+  "icons": [
+    {
+      "src": "assets/img/favicon-150.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/apple-touch-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

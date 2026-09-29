@@ -1,0 +1,13 @@
+# robots.txt — Sorouh Alshami Company Ltd.
+#
+# REPLACE-ME: replace "https://REPLACE-ME.example/" with the live
+# origin BEFORE deploying. Pointing crawlers at a wrong host can cause the
+# page to be indexed under the wrong URL or not indexed at all.
+
+User-agent: *
+Allow: /
+
+# Nothing on this site is private or account-gated.
+Disallow: /assets/tmp/
+
+Sitemap: https://REPLACE-ME.example/sitemap.xml

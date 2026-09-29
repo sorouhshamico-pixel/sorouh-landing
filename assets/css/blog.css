@@ -1,0 +1,665 @@
+/* ==========================================================================
+   BLOG / ARTICLE
+   Loaded AFTER tokens.css + base.css + components.css, which supply the
+   container, buttons, cards, logo and socials. This file only adds the
+   long-form reading layer: prose, TOC, figures, infoboxes, callouts.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1 · ART PAGE SHELL
+   -------------------------------------------------------------------------- */
+.article-page {
+  background:
+    radial-gradient(
+      62% 42% at 78% -6%,
+      rgba(225, 184, 50, 0.09),
+      transparent 62%
+    ),
+    var(--navy-950);
+}
+
+.article-shell {
+  display: grid;
+  gap: var(--space-2xl);
+  /* minmax(0, 1fr), not 1fr: a plain 1fr track takes its minimum from the
+     content's min-content width, and the wide tables below (min-width 34rem)
+     would push the whole article to 544px on a 360px phone. */
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+  .article-shell {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2 · ARTICLE HEADER
+   -------------------------------------------------------------------------- */
+.article-head {
+  margin-block-end: var(--space-2xl);
+  padding-block-end: var(--space-xl);
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+.article-head__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  margin-block-end: var(--space-sm);
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(225, 184, 50, 0.08);
+  color: var(--gold-200);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.article-head__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--fs-display-2);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.article-head__lead {
+  max-width: 62ch;
+  color: var(--text-200);
+  font-size: var(--fs-lead);
+  line-height: 1.95;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-md);
+  margin-block-start: var(--space-lg);
+  color: var(--text-300);
+  font-size: var(--fs-xs);
+}
+
+.article-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+}
+
+.article-meta__item svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* --------------------------------------------------------------------------
+   3 · PROSE
+   Arabic reads best with a taller line box and a measure around 68ch.
+   -------------------------------------------------------------------------- */
+.prose {
+  max-width: 68ch;
+  color: var(--text-200);
+  font-size: var(--fs-body);
+  line-height: 2.05;
+}
+
+.prose > * + * {
+  margin-block-start: var(--space-md);
+}
+
+.prose h2 {
+  margin-block-start: var(--space-2xl);
+  margin-block-end: var(--space-sm);
+  color: var(--text-100);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  scroll-margin-block-start: 90px;
+}
+
+.prose h3 {
+  margin-block-start: var(--space-xl);
+  margin-block-end: var(--space-2xs);
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: 1.6;
+  scroll-margin-block-start: 90px;
+}
+
+.prose strong {
+  color: var(--text-100);
+  font-weight: var(--fw-semibold);
+}
+
+.prose a:not(.btn) {
+  color: var(--gold-200);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(225, 184, 50, 0.4);
+  transition: text-decoration-color var(--dur-base) var(--ease-out-quart);
+}
+
+.prose a:not(.btn):hover {
+  text-decoration-color: var(--gold-300);
+}
+
+.prose ul,
+.prose ol {
+  display: grid;
+  gap: var(--space-2xs);
+  padding-inline-start: 1.4em;
+}
+
+.prose li {
+  padding-inline-start: var(--space-3xs);
+}
+
+.prose li::marker {
+  color: var(--gold-300);
+  font-weight: var(--fw-bold);
+}
+
+.prose blockquote {
+  position: relative;
+  margin-block: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  padding-inline-start: var(--space-lg);
+  border-inline-start: 3px solid var(--gold-500);
+  border-radius: var(--radius-sm);
+  background: rgba(225, 184, 50, 0.06);
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  line-height: 1.95;
+}
+
+.prose blockquote cite {
+  display: block;
+  margin-block-start: var(--space-2xs);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+  font-style: normal;
+}
+
+/* Inline code / technical tokens */
+.prose code {
+  padding: 0.12em 0.42em;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xs);
+  background: rgba(19, 28, 46, 0.8);
+  color: var(--gold-200);
+  font-family: var(--font-brand);
+  font-size: 0.9em;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.prose table {
+  width: 100%;
+  margin-block: var(--space-lg);
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.prose caption {
+  margin-block-end: var(--space-2xs);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+  text-align: start;
+}
+
+.prose th,
+.prose td {
+  padding: var(--space-2xs) var(--space-sm);
+  border: 1px solid var(--border-subtle);
+  text-align: start;
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.prose th {
+  background: rgba(19, 28, 46, 0.85);
+  color: var(--gold-200);
+  font-weight: var(--fw-semibold);
+}
+
+.prose tbody tr:nth-child(even) {
+  background: rgba(19, 28, 46, 0.35);
+}
+
+/* Wide tables scroll instead of forcing the page sideways */
+.prose .table-scroll {
+  overflow-x: auto;
+  margin-block: var(--space-lg);
+  -webkit-overflow-scrolling: touch;
+  /* let this box shrink below the table's min-width so the table scrolls
+     inside it — without it the table's 34rem minimum still wins */
+  min-width: 0;
+}
+
+.prose .table-scroll table {
+  margin-block: 0;
+  min-width: 34rem;
+}
+
+/* --------------------------------------------------------------------------
+   4 · FIGURES + DIAGRAMS
+   -------------------------------------------------------------------------- */
+.figure {
+  margin-block: var(--space-xl);
+}
+
+.figure img,
+.figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--grad-surface);
+}
+
+.figure figcaption {
+  margin-block-start: var(--space-2xs);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+  line-height: 1.75;
+}
+
+/* Bespoke inline diagram — SVG so the browser shapes the Arabic text */
+.diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: var(--space-xl);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(
+      70% 60% at 50% 0%,
+      rgba(225, 184, 50, 0.08),
+      transparent 70%
+    ),
+    var(--grad-surface);
+}
+
+.diagram text {
+  font-family: var(--font-brand);
+  fill: var(--text-100);
+}
+
+.diagram .d-title {
+  fill: var(--gold-200);
+  font-weight: 700;
+}
+
+.diagram .d-muted {
+  fill: var(--text-300);
+  font-size: 12px;
+}
+
+.diagram .d-box {
+  fill: rgba(19, 28, 46, 0.9);
+  stroke: rgba(225, 184, 50, 0.34);
+  stroke-width: 1;
+}
+
+.diagram .d-box--gold {
+  fill: rgba(225, 184, 50, 0.14);
+  stroke: rgba(225, 184, 50, 0.62);
+}
+
+.diagram .d-line {
+  stroke: rgba(225, 184, 50, 0.42);
+  stroke-width: 1.4;
+  fill: none;
+}
+
+.diagram .d-line--dash {
+  stroke-dasharray: 5 5;
+}
+
+.diagram .d-accent {
+  fill: var(--gold-200);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   5 · CALLOUTS
+   -------------------------------------------------------------------------- */
+.callout {
+  position: relative;
+  margin-block: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  padding-inline-start: calc(var(--space-lg) + 4px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  background: rgba(225, 184, 50, 0.06);
+}
+
+.callout__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-block-end: var(--space-2xs);
+  color: var(--gold-200);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+
+.callout__title svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.callout p {
+  color: var(--text-200);
+  font-size: var(--fs-sm);
+  line-height: 1.95;
+}
+
+.callout--warn {
+  border-color: rgba(225, 184, 50, 0.5);
+  background: rgba(225, 184, 50, 0.09);
+}
+
+/* Key takeaways */
+.takeaways {
+  margin-block: var(--space-2xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(150deg, rgba(225, 184, 50, 0.1), rgba(10, 15, 26, 0.6) 60%);
+  box-shadow: var(--shadow-inset-gold);
+}
+
+.takeaways h2 {
+  margin-block: 0 var(--space-sm);
+  color: var(--gold-200);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+}
+
+.takeaways ol {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding-inline-start: 1.4em;
+  color: var(--text-200);
+  font-size: var(--fs-sm);
+  line-height: 1.9;
+}
+
+.takeaways li::marker {
+  color: var(--gold-300);
+  font-weight: var(--fw-bold);
+}
+
+/* --------------------------------------------------------------------------
+   6 · SIDE RAIL — TOC + share
+   -------------------------------------------------------------------------- */
+.rail {
+  display: grid;
+  gap: var(--space-md);
+  align-content: start;
+}
+
+@media (min-width: 1024px) {
+  .rail {
+    position: sticky;
+    inset-block-start: 96px;
+  }
+}
+
+.rail__card {
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: rgba(19, 28, 46, 0.55);
+}
+
+.rail__title {
+  margin-block-end: var(--space-sm);
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+
+.rail ol {
+  display: grid;
+  gap: var(--space-3xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.rail ol a {
+  display: block;
+  padding: 0.35rem 0.55rem;
+  border-inline-start: 2px solid transparent;
+  border-radius: 0 var(--radius-2xs) var(--radius-2xs) 0;
+  color: var(--text-300);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  text-decoration: none;
+  transition:
+    color var(--dur-base) var(--ease-out-quart),
+    border-color var(--dur-base) var(--ease-out-quart),
+    background-color var(--dur-base) var(--ease-out-quart);
+}
+
+.rail ol a:hover,
+.rail ol a:focus-visible {
+  border-inline-start-color: var(--gold-500);
+  background: rgba(225, 184, 50, 0.08);
+  color: var(--gold-200);
+}
+
+/* The entry for the section you are currently reading. JS sets .is-current
+   from an IntersectionObserver on the article's h2[id] headings. */
+.rail ol a.is-current {
+  border-inline-start-color: var(--gold-500);
+  background: rgba(225, 184, 50, 0.1);
+  color: var(--gold-200);
+  font-weight: var(--fw-semibold);
+}
+
+.rail .socials {
+  margin-block-start: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7 · AUTHOR + RELATED
+   -------------------------------------------------------------------------- */
+.author {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin-block-start: var(--space-2xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: rgba(19, 28, 46, 0.5);
+}
+
+.author__logo {
+  flex: none;
+  width: 68px;
+  height: 68px;
+  padding: 6px;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: rgba(225, 184, 50, 0.06);
+}
+
+.author__name {
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+
+.author__role {
+  margin-block-end: var(--space-2xs);
+  color: var(--gold-200);
+  font-size: var(--fs-2xs);
+}
+
+.author__bio {
+  color: var(--text-300);
+  font-size: var(--fs-xs);
+  line-height: 1.85;
+}
+
+.related {
+  margin-block-start: var(--space-3xl);
+  padding-block-start: var(--space-2xl);
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+.related__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+  margin-block-start: var(--space-lg);
+}
+
+@media (min-width: 700px) {
+  .related__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .related__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8 · ARTICLE CTA
+   -------------------------------------------------------------------------- */
+.article-cta {
+  margin-block-start: var(--space-2xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      70% 120% at 0% 0%,
+      rgba(225, 184, 50, 0.14),
+      transparent 60%
+    ),
+    var(--grad-surface);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+}
+
+.article-cta h2 {
+  margin-block-end: var(--space-sm);
+  color: var(--text-100);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+}
+
+.article-cta p {
+  max-width: 52ch;
+  margin: 0 auto var(--space-lg);
+  color: var(--text-200);
+  font-size: var(--fs-sm);
+  line-height: 1.9;
+}
+
+.article-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   9 · BLOG INDEX
+   -------------------------------------------------------------------------- */
+.blog-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-3xl) var(--space-2xl);
+  border-block-end: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.blog-hero__title {
+  margin-block-end: var(--space-md);
+  font-size: var(--fs-display-2);
+  line-height: 1.35;
+}
+
+.blog-hero__lead {
+  max-width: 60ch;
+  margin-inline: auto;
+  color: var(--text-200);
+  font-size: var(--fs-lead);
+  line-height: 1.95;
+}
+
+.blog-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Breadcrumb back-link in the article header bar */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+  align-items: center;
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+}
+
+.crumbs a {
+  color: var(--text-200);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.crumbs a:hover {
+  color: var(--gold-200);
+}
+
+.crumbs svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--text-300);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

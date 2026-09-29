@@ -1,0 +1,1238 @@
+/* ==========================================================================
+   Sorouh Alshami — Components
+   Buttons · Logo lockup · Header · 3D card system · Accordion · Footer
+   The 3D language lives here so every section inherits it consistently.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. BUTTONS
+   ========================================================================== */
+.btn {
+  --btn-py: 0.95rem;
+  --btn-px: 1.85rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  padding: var(--btn-py) var(--btn-px);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    translate var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    color var(--dur-base) var(--ease-out-quart),
+    border-color var(--dur-base) var(--ease-out-quart);
+  /* Magnetic pull, written by JS as --magx/--magy. The independent
+     `translate` property composes with `transform`, so the hover lift
+     above is preserved. Defaults to an identity transform. */
+  translate: var(--magx, 0px) var(--magy, 0px);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.btn:hover svg {
+  transform: scale(1.12);
+}
+
+/* --- Primary: metallic gold ------------------------------------------- */
+.btn--primary {
+  background: var(--grad-gold);
+  background-size: 200% 200%;
+  color: var(--navy-900);
+  box-shadow:
+    var(--shadow-gold),
+    var(--shadow-inset-gold);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.btn--primary:hover {
+  box-shadow:
+    var(--shadow-gold-strong),
+    var(--shadow-inset-gold);
+}
+
+/* Light sweep travelling across the button face */
+.btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.62) 48%,
+    transparent 64%
+  );
+  transform: translateX(-120%);
+  transition: transform var(--dur-slower) var(--ease-out-expo);
+}
+
+.btn--primary:hover::after {
+  transform: translateX(120%);
+}
+
+/* --- Secondary: gold ghost outline ------------------------------------ */
+.btn--ghost {
+  border: 1px solid var(--border-gold-strong);
+  background: rgba(225, 184, 50, 0.05);
+  color: var(--gold-200);
+  box-shadow: var(--shadow-sm);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+}
+
+.btn--ghost:hover {
+  border-color: var(--gold-400);
+  background: rgba(225, 184, 50, 0.12);
+  color: var(--gold-100);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn--sm {
+  --btn-py: 0.7rem;
+  --btn-px: 1.3rem;
+  font-size: var(--fs-xs);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   2. LOGO LOCKUP
+   The official logo file is used verbatim — never redrawn, recolored
+   or filtered. Only box-sizing/opacity transitions are applied.
+   ========================================================================== */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  flex: none;
+}
+
+.logo__img {
+  width: auto;
+  height: 46px;
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    filter var(--dur-base) var(--ease-out-quart);
+}
+
+.logo:hover .logo__img {
+  transform: scale(1.045);
+  filter: drop-shadow(0 6px 18px rgba(225, 184, 50, 0.4));
+}
+
+/* ==========================================================================
+   3. HEADER / NAVIGATION
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--z-header);
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  border-block-end: 1px solid transparent;
+  transition:
+    background-color var(--dur-base) var(--ease-out-quart),
+    border-color var(--dur-base) var(--ease-out-quart),
+    box-shadow var(--dur-base) var(--ease-out-quart),
+    backdrop-filter var(--dur-base) var(--ease-out-quart);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(5, 7, 12, 0.72);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-quart);
+}
+
+.site-header.is-scrolled {
+  border-block-end-color: var(--border-subtle);
+  box-shadow: 0 12px 40px -24px rgba(0, 0, 0, 0.9);
+}
+
+.site-header.is-scrolled::before {
+  opacity: 1;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, -0.5rem + 1.5vw, 1rem);
+}
+
+.site-nav__link {
+  position: relative;
+  padding: 0.5rem 0.7rem;
+  color: var(--text-200);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0.7rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-gold);
+  transform: scaleX(0);
+  transform-origin: inline-end;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="true"] {
+  color: var(--gold-200);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link[aria-current="true"]::after {
+  transform: scaleX(1);
+  transform-origin: inline-start;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* --- Burger ------------------------------------------------------------ */
+/* Modern "collapsing" burger: the outer lines are shorter than the middle
+   one, they open up on hover, and they morph into a narrow X. Driven purely
+   by [aria-expanded] so the CSS and the accessibility state can never drift
+   apart. The lines are centred, which keeps the icon identical in RTL. */
+.burger {
+  display: none;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border-gold);
+  border-radius: 50%;
+  background: rgba(225, 184, 50, 0.06);
+  transition:
+    background-color var(--dur-fast) var(--ease-out-quart),
+    border-color var(--dur-fast) var(--ease-out-quart),
+    box-shadow var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-fast) var(--ease-out-quart);
+}
+
+.burger:hover,
+.burger:focus-visible {
+  background: rgba(225, 184, 50, 0.14);
+  border-color: rgba(225, 184, 50, 0.7);
+  box-shadow: 0 0 0 4px rgba(225, 184, 50, 0.1);
+}
+
+.burger:active {
+  transform: scale(0.94);
+}
+
+.burger[aria-expanded="true"] {
+  background: rgba(225, 184, 50, 0.18);
+  border-color: rgba(225, 184, 50, 0.62);
+}
+
+.burger__box {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 20px;
+  height: 14px;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.burger__line {
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold-300);
+  /* Centre origin so the shorter outer lines grow both ways and the X
+     stays balanced whatever the writing direction. */
+  transform-origin: center;
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    opacity var(--dur-fast) linear;
+}
+
+.burger__line:nth-child(1) {
+  top: 0;
+  transform: scaleX(0.75);
+}
+.burger__line:nth-child(2) {
+  top: 6px;
+}
+.burger__line:nth-child(3) {
+  top: 12px;
+  transform: scaleX(0.75);
+}
+
+/* Hover: the icon "opens up" — outer lines lengthen, middle contracts */
+.burger[aria-expanded="false"]:hover .burger__line:nth-child(1),
+.burger[aria-expanded="false"]:hover .burger__line:nth-child(3) {
+  transform: scaleX(0.9);
+}
+
+.burger[aria-expanded="false"]:hover .burger__line:nth-child(2) {
+  transform: scaleX(0.85);
+}
+
+.burger[aria-expanded="false"]:hover .burger__box {
+  transform: scale(1.06);
+}
+
+/* Open: the middle line clears first, then the outer two cross over */
+.burger[aria-expanded="true"] .burger__line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  transition-delay: 70ms;
+}
+
+.burger[aria-expanded="true"] .burger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+.burger[aria-expanded="true"] .burger__line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  transition-delay: 70ms;
+}
+
+/* --- Mobile drawer ----------------------------------------------------- */
+.drawer {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: var(--z-drawer);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-lg) var(--gutter) var(--space-2xl);
+  background: rgba(5, 7, 12, 0.97);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-block-start: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-out-expo),
+    visibility var(--dur-base) step-end;
+}
+
+.drawer.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-out-expo),
+    visibility 0s;
+}
+
+.drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(19, 28, 46, 0.5);
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  transition:
+    border-color var(--dur-fast) var(--ease-out-quart),
+    background-color var(--dur-fast) var(--ease-out-quart),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+
+.drawer__link:hover,
+.drawer__link:focus-visible {
+  border-color: var(--border-gold);
+  background: rgba(225, 184, 50, 0.09);
+  transform: translateX(-6px);
+}
+
+.drawer__link span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.drawer__cta {
+  margin-block-start: var(--space-sm);
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+/* Lock page scroll while the drawer is open */
+.is-locked {
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .site-nav,
+  .site-header__actions .btn {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   4. 3D CARD SYSTEM
+   .lift      → perspective wrapper (JS supplies --rx / --ry)
+   .lift__card→ the tilting surface
+   .lift__plate→ a depth plate behind the card for true layered parallax
+   ========================================================================== */
+.lift {
+  position: relative;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+/* Depth plate: sits behind and offset, reads as a real extruded edge */
+.lift__plate {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  border: 1px solid var(--border-gold);
+  background: linear-gradient(
+    170deg,
+    rgba(225, 184, 50, 0.14) 0%,
+    rgba(10, 15, 26, 0.9) 55%
+  );
+  opacity: 0.55;
+  transform: translate3d(0, 14px, -40px) scale(0.985);
+  transition:
+    transform var(--dur-slow) var(--ease-out-expo),
+    opacity var(--dur-slow) var(--ease-out-expo);
+}
+
+.lift:hover .lift__plate,
+.lift:focus-within .lift__plate {
+  opacity: 0.9;
+  transform: translate3d(0, 22px, -40px) scale(0.975);
+}
+
+.lift__card {
+  position: relative;
+  border-radius: inherit;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform var(--dur-slow) var(--ease-out-expo);
+}
+
+/* While the pointer drives the tilt, keep motion tight and linear */
+.lift.is-tilting .lift__card {
+  transition: transform 90ms linear;
+}
+
+/* --- Base card surface ------------------------------------------------- */
+.card {
+  --card-pad: clamp(1.5rem, 1.1rem + 1.2vw, 2.15rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--card-pad);
+  border-radius: var(--radius-lg);
+  background: var(--grad-surface);
+  box-shadow:
+    var(--shadow-md),
+    var(--shadow-inset-top);
+  overflow: hidden;
+  transition:
+    box-shadow var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo),
+    border-color var(--dur-slow) var(--ease-out-quart);
+}
+
+/* 1px metallic gold frame drawn with a masked gradient */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    rgba(225, 184, 50, 0.5) 0%,
+    rgba(225, 184, 50, 0.08) 32%,
+    rgba(168, 178, 193, 0.12) 58%,
+    rgba(225, 184, 50, 0.32) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out-quart);
+  opacity: 0.75;
+}
+
+/* Pointer-following gold glow (coordinates set by JS) */
+.card__glow {
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(225, 184, 50, 0.16),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out-quart);
+  pointer-events: none;
+}
+
+.lift:hover .card__glow,
+.lift:focus-within .card__glow {
+  opacity: 1;
+}
+
+/* Light sweep across the card face */
+.card__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 34%,
+    rgba(255, 233, 168, 0.1) 45%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 233, 168, 0.1) 55%,
+    transparent 66%
+  );
+  background-size: 280% 100%;
+  background-position: 190% 0;
+  transition: background-position 1s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.lift:hover .card__sheen,
+.lift:focus-within .card__sheen {
+  background-position: -90% 0;
+}
+
+/* Inner content sits above the decorative layers.
+   The two decoration layers are excluded explicitly, otherwise this rule
+   would win on source order and push them above the card content. */
+.card > :not(.card__glow):not(.card__sheen) {
+  position: relative;
+  z-index: 3;
+}
+
+.lift:hover .lift__card,
+.lift:focus-within .lift__card {
+  box-shadow:
+    var(--shadow-xl),
+    var(--shadow-gold),
+    var(--shadow-inset-top);
+  transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   5. ICON TILE
+   ========================================================================== */
+.icon-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 58px;
+  height: 58px;
+  margin-block-end: var(--space-md);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(155deg, rgba(225, 184, 50, 0.16), rgba(10, 15, 26, 0.6));
+  box-shadow:
+    var(--shadow-sm),
+    var(--shadow-inset-top);
+  transition:
+    transform var(--dur-slow) var(--ease-spring),
+    box-shadow var(--dur-slow) var(--ease-out-expo),
+    border-color var(--dur-slow) var(--ease-out-quart);
+}
+
+.icon-tile svg {
+  width: 27px;
+  height: 27px;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lift:hover .icon-tile,
+.lift:focus-within .icon-tile {
+  transform: translateY(-3px) scale(1.06) rotate(-4deg);
+  border-color: var(--border-gold-strong);
+  box-shadow:
+    var(--shadow-gold),
+    var(--shadow-inset-gold);
+}
+
+.icon-tile--sm {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  margin-block-end: var(--space-sm);
+}
+
+.icon-tile--sm svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================================================
+   6. CARD TEXT PARTS
+   ========================================================================== */
+.card__title {
+  margin-block-end: var(--space-2xs);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.lift:hover .card__title {
+  color: var(--gold-200);
+}
+
+.card__text {
+  font-size: var(--fs-sm);
+  color: var(--text-200);
+  line-height: 1.85;
+}
+
+/* Small gold arrow that slides on hover */
+.card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  margin-block-start: var(--space-sm);
+  color: var(--gold-300);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.card__more svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.lift:hover .card__more svg {
+  transform: translateX(-5px);
+}
+
+/* ==========================================================================
+   7. FAQ ACCORDION
+   ========================================================================== */
+.accordion {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.accordion__item {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--grad-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-base) var(--ease-out-quart),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-quart);
+}
+
+.accordion__item:hover {
+  border-color: var(--border-gold);
+}
+
+.accordion__item.is-open {
+  border-color: var(--border-gold-strong);
+  background: linear-gradient(
+    160deg,
+    rgba(225, 184, 50, 0.07),
+    rgba(10, 15, 26, 0.96) 55%
+  );
+  box-shadow: var(--shadow-gold);
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-md) var(--space-md);
+  text-align: start;
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: 1.6;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.accordion__trigger:hover {
+  color: var(--gold-200);
+}
+
+.accordion__trigger:focus-visible {
+  outline-offset: -3px;
+}
+
+.accordion__sign {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-gold);
+  border-radius: 50%;
+  background: rgba(225, 184, 50, 0.1);
+  transition:
+    background-color var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-spring);
+}
+
+.accordion__sign::before,
+.accordion__sign::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--gold-300);
+  border-radius: 2px;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.accordion__sign::before {
+  width: 13px;
+  height: 2px;
+}
+
+.accordion__sign::after {
+  width: 2px;
+  height: 13px;
+}
+
+.accordion__item.is-open .accordion__sign {
+  background: var(--grad-gold);
+  transform: rotate(180deg);
+}
+
+.accordion__item.is-open .accordion__sign::before {
+  background: var(--navy-900);
+}
+
+.accordion__item.is-open .accordion__sign::after {
+  transform: scaleY(0);
+}
+
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out-expo);
+}
+
+.accordion__item.is-open .accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+.accordion__panel > div {
+  overflow: hidden;
+}
+
+.accordion__answer {
+  padding: 0 var(--space-md) var(--space-md);
+  font-size: var(--fs-sm);
+  line-height: 1.95;
+  color: var(--text-200);
+}
+
+/* ==========================================================================
+   8. FLOATING ACTION — WhatsApp
+   ========================================================================== */
+.fab {
+  position: fixed;
+  inset-block-end: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+  inset-inline-start: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+  z-index: var(--z-header);
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border-gold-strong);
+  border-radius: 50%;
+  background: var(--grad-surface-glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-spring),
+    visibility var(--dur-base) step-end,
+    background-color var(--dur-base) var(--ease-out-quart);
+}
+
+.fab.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-spring),
+    visibility 0s;
+}
+
+.fab:hover {
+  background: rgba(225, 184, 50, 0.18);
+}
+
+.fab svg {
+  width: 27px;
+  height: 27px;
+  fill: var(--gold-300);
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.fab:hover svg {
+  transform: scale(1.12);
+}
+
+/* Pulsing halo */
+.fab::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  animation: fab-pulse 2.8s var(--ease-out-quart) infinite;
+  pointer-events: none;
+}
+
+@keyframes fab-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  padding-block-start: var(--space-3xl);
+  border-block-start: 1px solid var(--border-subtle);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 11, 18, 0.6) 0%,
+    rgba(3, 5, 10, 0.98) 70%
+  );
+  overflow: hidden;
+}
+
+/* Large ghost emblem watermark in the footer */
+.site-footer__art {
+  position: absolute;
+  inset-block-start: -8%;
+  inset-inline-end: -6%;
+  width: min(560px, 60vw);
+  opacity: 0.045;
+  pointer-events: none;
+  filter: grayscale(0.2);
+}
+
+.site-footer__grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
+  padding-block-end: var(--space-2xl);
+}
+
+.site-footer__brand .logo__img {
+  height: 58px;
+}
+
+.site-footer__slogan {
+  margin-block: var(--space-md) var(--space-sm);
+  color: var(--gold-200);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+}
+
+.site-footer__about {
+  max-width: 42ch;
+  font-size: var(--fs-sm);
+  line-height: 1.9;
+}
+
+/* Social row — real accounts, 7 platforms */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+  margin-block-start: var(--space-md);
+  list-style: none;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(19, 28, 46, 0.5);
+  color: var(--text-200);
+  transition:
+    color var(--dur-base) var(--ease-out-quart),
+    border-color var(--dur-base) var(--ease-out-quart),
+    background-color var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-spring),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  border-color: var(--border-gold);
+  background: rgba(225, 184, 50, 0.12);
+  color: var(--gold-200);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+}
+
+.site-footer__title {
+  margin-block-end: var(--space-sm);
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--space-2xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__list a,
+.site-footer__list span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  color: var(--text-200);
+  font-size: var(--fs-sm);
+  transition:
+    color var(--dur-fast) var(--ease-out-quart),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+
+.site-footer__list a:hover {
+  color: var(--gold-200);
+  transform: translateX(-4px);
+}
+
+.site-footer__list svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  stroke: var(--gold-400);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-footer__bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-md);
+  border-block-start: 1px solid var(--border-subtle);
+  font-size: var(--fs-xs);
+  color: var(--text-300);
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 899px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .site-footer__bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   10. TO TOP
+   ========================================================================== */
+.to-top {
+  position: fixed;
+  inset-block-end: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+  inset-inline-end: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+  z-index: var(--z-header);
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border-gold);
+  border-radius: 50%;
+  background: rgba(10, 15, 26, 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--gold-300);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-out-expo),
+    visibility var(--dur-base) step-end,
+    border-color var(--dur-fast) var(--ease-out-quart);
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-out-expo),
+    visibility 0s;
+}
+
+.to-top:hover {
+  border-color: var(--border-gold-strong);
+  background: rgba(225, 184, 50, 0.14);
+}
+
+.to-top svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   12. READING PROGRESS
+   A 2px gold line under the top edge showing how far down the page you are.
+   The element itself is created by JS (it cannot work without JS), so there
+   is no dead markup and no cost when scripting is off. JS writes --p.
+   ========================================================================== */
+.read-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: calc(var(--z-header) + 1);
+  height: 2px;
+  pointer-events: none;
+  background: var(--grad-gold);
+  box-shadow: 0 0 10px rgba(225, 184, 50, 0.45);
+  transform: scaleX(var(--p, 0));
+  transform-origin: right center; /* inline-start in RTL */
+  will-change: transform;
+}
+
+/* ==========================================================================
+   13. POST CARD
+   Shared by the blog listing (/blog/) and the landing-page blog section.
+   ========================================================================== */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.post-card__art {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-block-end: 1px solid var(--border-subtle);
+  background:
+    radial-gradient(
+      75% 70% at 50% 108%,
+      rgba(225, 184, 50, 0.2),
+      transparent 70%
+    ),
+    var(--grad-surface);
+}
+
+.post-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition:
+    transform var(--dur-slower) var(--ease-out-expo),
+    opacity var(--dur-base) var(--ease-out-quart);
+}
+
+.post-card:hover .post-card__art img {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+.post-card__kind {
+  position: absolute;
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-sm);
+  z-index: 1;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(5, 7, 12, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--gold-200);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+}
+
+.post-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--card-pad, var(--space-lg));
+}
+
+.post-card__title {
+  margin-block-end: var(--space-2xs);
+  color: var(--text-100);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: 1.55;
+  transition: color var(--dur-base) var(--ease-out-quart);
+}
+
+.post-card:hover .post-card__title {
+  color: var(--gold-200);
+}
+
+.post-card__text {
+  margin-block-end: var(--space-md);
+  color: var(--text-200);
+  font-size: var(--fs-xs);
+  line-height: 1.9;
+}
+
+.post-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-sm);
+  margin-block-start: auto;
+  padding-block-start: var(--space-sm);
+  border-block-start: 1px solid var(--border-subtle);
+  color: var(--text-300);
+  font-size: var(--fs-2xs);
+}
+
+.post-card__foot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.post-card__foot svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--gold-300);
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
